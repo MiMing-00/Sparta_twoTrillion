@@ -9,7 +9,7 @@
 <style>
     body {
         height: 2000px;
-        background-color: green;
+        /* background-color: green; */
     }
 
     .topBtn {
@@ -18,7 +18,9 @@
         bottom: 50px;
         width: 100px;
         height: 100px;
-        background-color: red;
+        background-image: url(./img/topBtn.png);
+        background-size: contain;
+
         cursor: pointer;
     }
 </style>
@@ -29,11 +31,7 @@
     </div>
     <script>
         const topBtn = document.querySelector(".topBtn");
-
         topBtn.addEventListener("click", function () {
-
-            // window.scrollTo(0, 0); left and top
-
             window.scrollTo({
                 left: 0,
                 top: 0,
