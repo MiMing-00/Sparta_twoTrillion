@@ -7,29 +7,28 @@
     <title>Document</title>
 </head>
 <style>
-    body {
-        min-width: 1920px;
-    }
+
     .memberBox {
-        max-width: 1600px;
+        box-sizing: border-box;
+        min-width: 1440px;
+        max-width: 1440px;
         width: 100%;
         border: 1px solid black;
-        margin: 0 auto;
+        margin: 100px auto 0;
         display: flex;
-        gap: 60px;
+        gap: 40px;
     }
     .leftBox, .rightBox {
         border: 1px solid green;
     }
     .leftBox {
-        width: 1000px;
+        width: 900px;
         padding: 60px;
     }
     .leftBox > .leftTitle {
         margin-bottom: 100px;
     }
     .leftBox {
-        width: 1200px;
         font-size: 32px;
     }
     .leftBox .myProfile {
@@ -46,7 +45,7 @@
         font-weight: bold;
     }    
     .rightBox {
-        width: 600px;
+        width: 500px;
         padding: 60px;
         text-align: center;
         display: flex;
@@ -120,29 +119,5 @@
             </div>
         </div>
     </div>
-
-    <div class = "commentList">
-        <h3>댓글 리스트</h3>
-        <ul>
-        </ul>
-    </div>
-    
-    <div class = "commentWrite">
-        <h3>댓글 등록폼</h3>
-        <form id = "commentForm">
-            <div>
-                <label for = "nickname">닉네임</label>
-                <input type = "text" required = true; name = "nickname" id = "nickname">
-            </div>
-            <div>
-                <label for = "pw">비밀번호</label>
-                <input type = "text" required = true; name = "pw" id = "pw">
-            </div>
-            <div>
-                <label for = "comment">댓글 작성</label>
-                <textarea id = "comment" required = true; name = "comment"></textarea>
-            </div>
-            <button type = "submit">댓글 등록</button>
-        </form>
 </body>
 </html>
