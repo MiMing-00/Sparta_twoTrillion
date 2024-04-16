@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            padding: 50px 0px 50px 0px;
+            background-position: center;
+            background-size: 100%;
+            background-color: rgb(234, 234, 234);
+        }
+
+        #gameTitle {
+            padding: 0px 0px 20px 0px;
+            color: #149b3b;
+            text-align: center;
+        }
+
+        .box {
+            margin: 20px 0px 60px 0px;
+        }
+
+        .box_row1 {
+            display: grid;
+            grid-template-columns: 170px 170px 170px 170px 170px;
+            grid-template-rows: 30px 30px;
+            justify-content: center;
+        }
+
+        .box_row2 {
+            display: grid;
+            grid-template-columns: 170px 170px 170px 170px;
+            grid-template-rows: 30px 30px;
+            justify-content: center;
+        }
+
+        .balanceGame {
+            width: 150px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(44, 197, 59);
+            color: white;
+            box-shadow: 0 4px 6px rgba(9, 87, 11, 0.3);
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+
+        .balanceGame:hover {
+            background-color: rgb(23, 165, 37);
+            color: white;
+            cursor: pointer;
+        }
+
+        [bG_tooltip]:hover {
+            position: relative;
+        }
+
+        [bG_tooltip]:hover:after {
+            content: attr(bG_tooltip);
+            position: absolute;
+            bottom: 120%;
+            border-radius: 3px;
+            background: rgb(255, 148, 41);
+            color: #FFFFFF;
+            font-size: 14px;
+            z-index: 9999;
+        }
+
+        .mid_image {
+            text-align: center;
+            padding: 95px 0px 95px 0px;
+            background-image: url("./img/mid_image.jpg");
+            background-size: cover;
+            background-position: center;
+            background: ;
+        }
+
+        #mid_title {
+            width: 360px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px auto 0px auto;
+            background-color: #149b3b;
+            color: white;
+            border-radius: 30px;
+        }
+
+    </style>
+    <script>
+        function mouseenterHandler1() {document.getElementById("naeng").textContent="3 물냉 vs 비냉 3";}
+        function mouseleaveHandler1() {document.getElementById("naeng").textContent="물냉 vs 비냉";}
+        
+        function mouseenterHandler2() {document.getElementById("tang").textContent="2 부먹 vs 찍먹 4";}
+        function mouseleaveHandler2() {document.getElementById("tang").textContent="부먹 vs 찍먹";}
+        
+        function mouseenterHandler3() {document.getElementById("mint").textContent="3 민초파 vs 반민초파 3";}
+        function mouseleaveHandler3() {document.getElementById("mint").textContent="민초파 vs 반민초파";}
+        
+        function mouseenterHandler4() {document.getElementById("drink").textContent="4 코카콜라 vs 펩시 2";}
+        function mouseleaveHandler4() {document.getElementById("drink").textContent="코카콜라 vs 펩시";}
+
+        function mouseenterHandler5() {document.getElementById("peach").textContent="4 물복 vs 딱복 2";}
+        function mouseleaveHandler5() {document.getElementById("peach").textContent="물복 vs 딱복";}
+
+        function mouseenterHandler6() {document.getElementById("fishbun").textContent="4 팥붕 vs 슈붕 2";}
+        function mouseleaveHandler6() {document.getElementById("fishbun").textContent="팥붕 vs 슈붕";}
+
+        function mouseenterHandler7() {document.getElementById("meat").textContent="2 돼지고기 vs 소고기 4";}
+        function mouseleaveHandler7() {document.getElementById("meat").textContent="돼지고기 vs 소고기";}
+
+        function mouseenterHandler8() {document.getElementById("sauce1").textContent="3 고추장 vs 기름장 3";}
+        function mouseleaveHandler8() {document.getElementById("sauce1").textContent="고추장 vs 기름장";}
+
+        function mouseenterHandler9() {document.getElementById("sauce2").textContent="1 순대 소금 vs 쌈장 5";}
+        function mouseleaveHandler9() {document.getElementById("sauce2").textContent="순대 소금 vs 쌈장";}        
+    </script>
+</head>
+
+<body>
+    <div class='main'>
+        <h2 id="gameTitle">논란의 밸런스 게임</h2>
+        <div class="box">
+            <div class="box_row1">
+                <div class="balanceGame" bG_tooltip="3:3" onmouseenter="mouseenterHandler1()" onmouseleave="mouseleaveHandler1()" id = "naeng">물냉 vs 비냉</div>
+                <div class="balanceGame" bG_tooltip="2:4" onmouseenter="mouseenterHandler2()" onmouseleave="mouseleaveHandler2()" id = "tang">부먹 vs 찍먹</div>
+                <div class="balanceGame" bG_tooltip="3:3" onmouseenter="mouseenterHandler3()" onmouseleave="mouseleaveHandler3()" id = "mint">민초파 vs 반민초파</div>
+                <div class="balanceGame" bG_tooltip="4:2" onmouseenter="mouseenterHandler4()" onmouseleave="mouseleaveHandler4()" id = "drink">코카콜라 vs 펩시</div>
+                <div class="balanceGame" bG_tooltip="4:2" onmouseenter="mouseenterHandler5()" onmouseleave="mouseleaveHandler5()" id = "peach">물복 vs 딱복</div>
+            </div>
+            <div class="box_row2">
+                <div class="balanceGame" bG_tooltip="4:2" onmouseenter="mouseenterHandler6()" onmouseleave="mouseleaveHandler6()" id = "fishbun">팥붕 vs 슈붕</div>
+                <div class="balanceGame" bG_tooltip="2:4" onmouseenter="mouseenterHandler7()" onmouseleave="mouseleaveHandler7()" id = "meat">돼지고기 vs 소고기</div>
+                <div class="balanceGame" bG_tooltip="3:3" onmouseenter="mouseenterHandler8()" onmouseleave="mouseleaveHandler8()" id = "sauce1">고추장 vs 기름장</div>
+                <div class="balanceGame" bG_tooltip="1:5" onmouseenter="mouseenterHandler9()" onmouseleave="mouseleaveHandler9()" id = "sauce2">순대 소금 vs 쌈장</div>
+            </div>
+        </div>
+        <div class="mid_image">
+            <h3 id="mid_title">연봉 2조 팀원의 매력을 소개합니다!</h3>
+        </div>
+    </div>
+</body>
+
+</html>
