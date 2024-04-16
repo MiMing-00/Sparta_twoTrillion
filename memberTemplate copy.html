@@ -9,7 +9,7 @@
     .memberBox {
         max-width: 1600px;
         width: 100%;
-        border: 1px solid red;
+        border: 1px solid black;
         margin: 0 auto;
         display: flex;
         gap: 60px;
@@ -25,24 +25,31 @@
     .rightBox {
         width: 600px;
         padding: 60px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
     .rightBoxImg {
-        width: 100px;
-        height: 100px;
-        /* background-image: ; */
-    }
-    .leftBoxtxt {
-        text-align: center;
-        background-color: green;
         width: 400px;
-        height: 300px;
+        height: 400px;
+        background-image: url(./img/memImgSol.png);
+        margin: 0 auto;
     }
-
+    .rightBoxTxt {
+        text-align: left;
+    }
+    .rightBoxTxt > p {
+        font-size: 24px;
+    }
 </style>
 <body>
     <div class="memberBox">
         <div class="leftBox">
+        <div class="leftBox">
             <연봉 2조> 멤버 프로필
+        </div>
+        <div class = "leftBoxtxt">
             <p>객관적인 자신의 장점</p>
             <p>자신의 스타일</p>
             <p>협력 스타일</p>
@@ -50,7 +57,7 @@
         </div>
         <div class="rightBox">
             <div class="rightBoxImg">
-                안냐새여
+                <!-- <img src="img/memImgSol.png" alt="sol"> -->
             </div>
             <div class="rightBoxTxt">
                 <p>이름</p>
