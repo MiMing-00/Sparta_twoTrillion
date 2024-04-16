@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,6 @@
     <title>Document</title>
 </head>
 <style>
-
     .memberBox {
         box-sizing: border-box;
         min-width: 1440px;
@@ -18,32 +18,41 @@
         display: flex;
         gap: 40px;
     }
-    .leftBox, .rightBox {
+
+    .leftBox,
+    .rightBox {
         border: 1px solid green;
     }
+
     .leftBox {
         width: 900px;
         padding: 60px;
     }
-    .leftBox > .leftTitle {
+
+    .leftBox>.leftTitle {
         margin-bottom: 100px;
     }
+
     .leftBox {
         font-size: 32px;
     }
+
     .leftBox .myProfile {
         margin: 20px;
         font-size: 20px;
     }
+
     /* 왼쪽 박스 글 사이 간격 조절 */
-    .leftBox .myProfile > div + div {
+    .leftBox .myProfile>div+div {
         margin-top: 20px;
     }
+
     /* 왼쪽 박스 타이틀 스타일 지정 */
-    .leftBox .myProfile > div > .title {
+    .leftBox .myProfile>div>.title {
         margin-bottom: 10px;
         font-weight: bold;
-    }    
+    }
+
     .rightBox {
         width: 500px;
         padding: 60px;
@@ -52,22 +61,25 @@
         justify-content: center;
         flex-direction: column;
     }
+
     .rightBoxImg {
         width: 400px;
         height: 400px;
         background-image: url(./img/memImgSol.png);
         margin: 0 auto;
     }
+
     .rightBoxTxt {
         text-align: left;
     }
-    .rightBoxTxt > p {
+
+    .rightBoxTxt>p {
         font-size: 24px;
     }
-    .rightBoxTxt > p + p {
+
+    .rightBoxTxt>p+p {
         margin-top: 30px;
     }
-
 
     /* 뒤로 가기 버튼 */
     .backBtn {
@@ -81,29 +93,74 @@
         cursor: pointer;
     }
 
+    .commentList {
+        padding: auto 0px auto 5px;
+        width: 1445px;
+        height: 300px;
+        margin: 5px 0px 30px 35px;
+        border: 3px solid #000000;
+        border-radius: 12px;
+        font-size: 18px;
+    }
 
+    .userComment {
+        margin: 10px 0px 0px 3px;
+        line-height: 50px;
+        border: 2px solid rgb(171, 164, 164);
+        border-radius: 1px;
+    }
+
+    .nickname {
+        margin: 20px auto 30px 2.6%;
+        font-size: 18px;
+        font-weight: 550;
+    }
+
+    .pw {
+        font-size: 18px;
+        font-weight: 550;
+        margin-top: -52px;
+        margin-left: 310px;
+    }
+
+    .comment {
+        border-style: solid;
+        font-size: 18px;
+        font-weight: 450;
+        margin: 10px 0px 0px 35px;
+    }
+    .commentForm {
+        border: 2px solid rgb(144, 198, 239);
+        margin: -20px 950px 0px 35px;
+        border-radius: 15px;
+        
+
+    }
 </style>
+
 <body>
-    <a href="index.html"><div class="backBtn"></div></a>
+    <a href="index.html">
+        <div class="backBtn"></div>
+    </a>
     <div class="memberBox">
         <div class="leftBox">
-            <div class = "leftTitle">
+            <div class="leftTitle">
                 <연봉 2조> 멤버 프로필
             </div>
-            <div class = "myProfile">
+            <div class="myProfile">
                 <div class="Advantages">
                     <p class="title">객관적인 자신의 장점</p>
                     <p>내용을 적어주세요.</p>
                 </div>
-                <div class = "myStyle">
+                <div class="myStyle">
                     <p class="title">자신의 스타일</p>
                     <p>내용을 적어주세요.</p>
                 </div>
-                <div class = "collaboStyle">
+                <div class="collaboStyle">
                     <p class="title">협력 스타일</p>
                     <p>내용을 적어주세요.</p>
                 </div>
-                <div class = "blogLink">
+                <div class="blogLink">
                     <!-- 아래 링크 수정하면 됩니다 임시로 네이버 넣어놨어요 -->
                     <a href="https://www.naver.com/">블로그 링크</a>
                 </div>
@@ -119,32 +176,41 @@
             </div>
         </div>
     </div>
-
-    <div class = "commentList">
-        <h3>댓글 목록</h3>
-        <ul>
-            
+    <div class="commentList">
+        <h3><br>댓글 목록</br></h3>
+        <ul class="userComment">
+            <li class="commentLi1">
+                <p>와 너무 멋져요!</p>
+            </li>
+            <li class="commentLi2">
+                <p>친해지고 싶어요 ㅠㅠ</p>
+            </li>
+            <li class="commentLi3">
+                <p>인스타 아이디 알려주세요</p>
+            </li>
+            <li class="commentLi4">
+                <p>오늘 저녁 메뉴 추천해 주십쇼!</p>
+            </li>
         </ul>
     </div>
-
-    <div class = "commentUp">
-        <h3>댓글 등록</h3>
-        <form id = "commentForm">
-            <div>
-                <label for = "nickname">nickname</label>
-                <input type = "text" name = "nickname" id = "nickname" required>
+    <form class ="commentForm">
+        <div class="nickname">
+            <label for="nickname">Nickname:</label>
+            <input type="text" name="nickname" id="nickname" required>
+        </div>
+        <div class = commentUp>
+            <div class="pw">
+                <label for="pw">PW:</label>
+                <input type="text" name="pw" id="pw" required>
             </div>
-            <div>
-                <label for = "pw">PW</label>
-                <input type = "text" name = "pw" id = "pw" required>
+            <div class="comment">
+                <label for="comment"></label>
+                <input type="text" placeholder="댓글을 입력하세요." style="width: 480px;height: 40px;font-size: 18px;">
             </div>
-            <div>
-                <label for = "comment">댓글을 남겨주세요.</label>
-                <textarea id = "comment" name = "comment"></textarea>
-            </div>
-            <button type = "submit">댓글 등록</button>
-        </form>
-
+            <button class="button" type="submit">댓글 등록</button>
+    </form>
+    </div>
     </div>
 </body>
+
 </html>
