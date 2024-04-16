@@ -120,5 +120,29 @@
             </div>
         </div>
     </div>
+
+    <div class = "commentList">
+        <h3>댓글 리스트</h3>
+        <ul>
+        </ul>
+    </div>
+    
+    <div class = "commentWrite">
+        <h3>댓글 등록폼</h3>
+        <form id = "commentForm">
+            <div>
+                <label for = "nickname">닉네임</label>
+                <input type = "text" required = true; name = "nickname" id = "nickname">
+            </div>
+            <div>
+                <label for = "pw">비밀번호</label>
+                <input type = "text" required = true; name = "pw" id = "pw">
+            </div>
+            <div>
+                <label for = "comment">댓글 작성</label>
+                <textarea id = "comment" required = true; name = "comment"></textarea>
+            </div>
+            <button type = "submit">댓글 등록</button>
+        </form>
 </body>
 </html>
