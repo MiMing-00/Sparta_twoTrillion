@@ -1,0 +1,64 @@
+* {
+    font-family: 'Noto Sans KR';
+}
+
+.about {
+    font-size: 50px;
+    font-weight: bold;
+    display: flex;
+    margin: 25px;
+    color: #149B3B;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleHouse {
+    width: 1400px;
+    height: 700px;
+    margin: 0 auto 0 auto;
+    font-size: 50px;
+}
+
+.circle {
+    background-color: #149B3B;
+    border-radius: 60%;
+
+    width: 30%;
+    height: 60%;
+
+    float: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.incircle {
+    margin: auto;
+    background-color: white;
+
+    width: 95%;
+    height: 95%;
+    border-radius: 195%;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.charincircle {
+    position: absolute;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.aboutustitle {
+    font-size: 72%;
+    color: #149B3B;
+}
+
+.aboutuscontent {
+    font-size: 60%;
+}
