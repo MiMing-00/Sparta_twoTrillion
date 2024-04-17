@@ -93,7 +93,7 @@ body {
     font-size: 50px;
     font-weight: bold;
     display: flex;
-    margin: 25px auto 60px;
+    margin: 100px auto 60px;
     color: #149B3B;
     display: flex;
     justify-content: center;
@@ -159,41 +159,45 @@ body {
 }
 /* Balance game */
 #gameTitle {
-    padding: 0px 0px 20px 0px;
+    margin: 100px 0 60px;
+    font-weight: bold;
+    font-size: 50px;
     color: #149b3b;
     text-align: center;
 }
 
 .box {
-    margin: 20px 0px 60px 0px;
+    margin-bottom: 100px;
 }
 
 .box_row1 {
     display: grid;
-    grid-template-columns: 170px 170px 170px 170px 170px;
-    grid-template-rows: 30px 30px;
+    grid-template-columns: 340px 340px 340px 340px 340px;
+    /* grid-template-columns: 170px 170px 170px 170px 170px; */
+    grid-template-rows: 100px;
     justify-content: center;
 }
 
 .box_row2 {
     display: grid;
-    grid-template-columns: 170px 170px 170px 170px;
+    grid-template-columns: 340px 340px 340px 340px;
     grid-template-rows: 30px 30px;
     justify-content: center;
 }
 
 .balanceGame {
-    width: 150px;
-    height: 40px;
+    width: 300px;
+    height: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(44, 197, 59);
     color: white;
     box-shadow: 0 4px 6px rgba(9, 87, 11, 0.3);
-    font-size: 14px;
+    font-size: 30px;
     font-weight: bold;
-    border-radius: 20px;
+    border-radius: 50px;
+    margin: 0 auto;
 }
 
 .balanceGame:hover {
@@ -203,30 +207,40 @@ body {
 }
 
 .mid_image {
+    height: 435px;
     text-align: center;
-    padding: 95px 0px 95px 0px;
+    /* padding: 95px 0px 95px 0px; */
     background-image: url("../img/mid_image.jpg");
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    background-attachment: fixed;
 }
 
 #mid_title {
-    width: 360px;
-    height: 45px;
+    white-space : nowrap;
+    font-size: 40px;
+    width: 710px;
+    padding: 20px 60px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px auto 0px auto;
     background-color: #149b3b;
     color: white;
-    border-radius: 30px;
+    border-radius: 50px;
+}
+#mid_title strong {
+    font-weight: bold;
 }
 /* profile */
 .profile_title {
     color: #149B3B;
-    height: 250px;
+    /* height: 250px; */
     width: 1440px;
-    margin: 0 auto;
+    margin: 100px auto 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
