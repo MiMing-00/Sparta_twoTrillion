@@ -28,9 +28,20 @@
 
     border-radius: 30px;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
+    left:0px;
+    animation: slide 1.5s ease;
 }
-
+@keyframes slide {
+    from {
+            left:-1000px;
+            opacity: 0;
+    }
+    to {
+        left:0px;
+        opacity: 1;
+    }
+}
 .card-title {
     margin-top: 15px;
     font-size: 40px;
