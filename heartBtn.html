@@ -248,17 +248,12 @@
         $('.userComment').append(temp_html);
     });
 
-    // let heartBtn = document.getElementsByClassName("like")
-    let heartBtn = document.getElementById("like")
-
-    heartBtn.addEventListener('click', function () {
-        heartBtn.classList.toggle('active')
-        const parentNode = heartBtn.parentNode;
-        console.log(parentNode);
-        const likeNum = heartBtn.nextElementSibling;
-        console.log(likeNum.innerText);
-        likeNum.innerText= +likeNum.innerText+1
-    })
+    const heartBtn = document.querySelectorAll('.like')
+    heartBtn.forEach((target)=>target.addEventListener('click', function () {
+        target.classList.toggle('active')
+        const likeNum = target.nextElementSibling;
+        likeNum.innerText = +likeNum.innerText+1
+    }))
 
 </script>
 
