@@ -8,30 +8,41 @@
     <title>Document</title>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+
+
     body {
-        background-color: orange;
+        background-image: url(./img/SJW_bgImg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
     }
+
     .memberBox {
         box-sizing: border-box;
-        width: 1440px;
-        border: 1px solid black;
-        margin: 100px auto 0;
+        width: 800px;
+        border-radius: 30px;
+        margin: 50px auto 0;
         display: flex;
+        justify-content: space-between;
         gap: 40px;
     }
 
     .leftBox,
     .rightBox {
-        border: 1px solid green;
+        border: 3px solid black;
+        border-radius: 30px;
+        background-color: beige;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     .leftBox {
-        width: 900px;
+        width: 400px;
         padding: 60px;
     }
 
     .leftBox>.leftTitle {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
 
     .leftBox {
@@ -55,7 +66,7 @@
     }
 
     .rightBox {
-        width: 500px;
+        width: 200px;
         padding: 60px;
         text-align: center;
         display: flex;
@@ -64,9 +75,10 @@
     }
 
     .rightBoxImg {
-        width: 400px;
-        height: 400px;
-        background-image: url(./img/memImgSol.png);
+        width: 200px;
+        height: 200px;
+        background-image: url(./img/memImgSjw.png);
+        background-size: cover;
         margin: 0 auto;
     }
 
@@ -98,13 +110,17 @@
         padding: 30px;
         width: 1440px;
         margin: 30px auto;
-        border: 1px solid #000000;
+        border: 3px solid #000000;
+        border-radius: 30px;
         font-size: 18px;
         box-sizing: border-box;
+        background-color: beige;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     .commentList>h3 {
         margin-bottom: 20px;
+        font-size: 20px;
     }
 
     .userComment {
@@ -136,7 +152,7 @@
     }
 
     .commentLi {
-        border: 1px solid green;
+        border: 2px solid black;
         padding: 10px;
         display: flex;
         justify-content: space-between;
@@ -146,7 +162,7 @@
         margin-top: 10px;
     }
 
-    
+
 
     .commentForm {
         width: 1440px;
@@ -252,10 +268,10 @@
     });
 
     const heartBtn = document.querySelectorAll('.like')
-    heartBtn.forEach((target)=>target.addEventListener('click', function () {
+    heartBtn.forEach((target) => target.addEventListener('click', function () {
         target.classList.toggle('active')
         const likeNum = target.nextElementSibling;
-        likeNum.innerText = +likeNum.innerText+1
+        likeNum.innerText = +likeNum.innerText + 1
     }))
 
 </script>
@@ -292,8 +308,8 @@
             <div class="rightBoxImg">
             </div>
             <div class="rightBoxTxt">
-                <p>이름</p>
-                <p>MBTI</p>
+                <p>이름 | 선지원</p>
+                <p>MBTI | INTJ</p>
                 <p>자기소개</p>
             </div>
         </div>
@@ -307,8 +323,7 @@
                     <p>와 너무 멋져요!</p>
                 </div>
                 <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
                         <path
                             d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                     </svg>
@@ -321,8 +336,7 @@
                     <p>친해지고 싶어요 ㅠㅠ</p>
                 </div>
                 <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
                         <path
                             d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                     </svg>
@@ -335,8 +349,7 @@
                     <p>인스타 아이디 알려주세요</p>
                 </div>
                 <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
                         <path
                             d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                     </svg>
@@ -349,8 +362,7 @@
                     <p>오늘 저메추 해주세요!</p>
                 </div>
                 <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
                         <path
                             d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                     </svg>
