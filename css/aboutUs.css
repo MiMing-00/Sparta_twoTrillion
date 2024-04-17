@@ -32,14 +32,16 @@
     position: relative;
     display: flex;
     align-items: center;
+
+    display: none;
 }
 
 .incircle {
     margin: auto;
     background-color: white;
 
-    width: 95%;
-    height: 95%;
+    width: 98%;
+    height: 98%;
     border-radius: 195%;
 
     position: relative;
@@ -57,8 +59,15 @@
 .aboutustitle {
     font-size: 72%;
     color: #149B3B;
+    margin-bottom: 0;
+}
+
+.aboutustitle-kr {
+    font-size: 60%;
+    color: black;
+    margin-top: 0;
 }
 
 .aboutuscontent {
-    font-size: 60%;
+    font-size: 45%;
 }
