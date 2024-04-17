@@ -3,12 +3,13 @@
 }
 
 .about {
+    
+    width: 1440px;
     font-size: 50px;
     font-weight: bold;
     display: flex;
-    margin: 25px;
+    margin: 25px auto 60px;
     color: #149B3B;
-    margin-bottom: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,14 +20,17 @@
     height: 700px;
     margin: 0 auto 0 auto;
     font-size: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .circle {
-    background-color: #149B3B;
+    border: 5px solid #149B3B;
+    /* background-color: #149B3B; */
     border-radius: 60%;
 
-    width: 30%;
-    height: 60%;
+    width: 400px;
+    height: 400px;
 
     float: left;
     position: relative;
@@ -40,8 +44,8 @@
     margin: auto;
     background-color: white;
 
-    width: 98%;
-    height: 98%;
+    width: 100%;
+    height: 100%;
     border-radius: 195%;
 
     position: relative;
@@ -50,24 +54,36 @@
 }
 
 .charincircle {
-    position: absolute;
+    /* position: absolute; */
     margin: 0 auto;
 
     text-align: center;
 }
 
 .aboutustitle {
+    font-family: 'Noto Sans KR';
+    font-weight: bold;
+    margin-top: 70px;
     font-size: 72%;
     color: #149B3B;
     margin-bottom: 0;
 }
 
 .aboutustitle-kr {
+    font-family: 'Noto Sans KR';
+    font-weight: bold;
     font-size: 60%;
-    color: black;
-    margin-top: 0;
+    color: #4D4D4D;
+    margin-top: 10px;
 }
 
 .aboutuscontent {
+    line-height: 150%;
+    width: 100%;
+    font-family: 'Noto Sans KR';
     font-size: 45%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
