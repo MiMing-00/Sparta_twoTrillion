@@ -1,1 +1,207 @@
-test2
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연봉 2조 소개 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="./css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+    <!-- Top Button -->
+    <div class="topBtn"></div>
+    <!-- Header -->
+    <header>
+        <div class="header_up">
+            <img src="./img/header_image.png" alt="header-image" width="100%">
+            <div class="headerTitleBox">
+                <h1>연봉 2조</h1>
+            </div>
+            <p class="headerText">
+                연봉 2조를 달성하기 위한 초보 개발자의 첫 번째 여정! <br>
+                함께 보러 갈까요?
+            </p>
+        </div>
+    </header>
+
+    <div class="wrap">
+        <!-- About Us -->
+        <div class="about">
+            <h2">About Us</h2>
+        </div>
+        <div class="circleHouse">
+            <div class="circle circle1" style="float: left;">
+                <div class="charincircle">
+                    <h3 class="aboutustitle">Character</h3>
+                    <h3 class="aboutustitle-kr">특징</h3>
+                    <div class="aboutuscontent">
+                        화기애애하다.<br>
+                        사전 프로젝트 <b style="color: red">1등</b>팀이다.<br>
+                        밸런스 게임으로 경쟁한다.
+                    </div>
+                </div>
+            </div>
+            <div class="circle circle2">
+                <div class="charincircle">
+                    <h3 class="aboutustitle">Goal</h3>
+                    <h3 class="aboutustitle-kr">목표</h3>
+                    <div class="aboutuscontent">
+                        와이어 프레임 프로젝트에서<br>
+                        <b style="color: red;">1등</b>
+                        했던 만큼 끝까지 <b style="color: red;">1등</b>하기!
+                    </div>
+                </div>
+            </div>
+            <div class="circle circle3" style="margin-right: 0; float: right;">
+                <div class="charincircle">
+                    <h3 class="aboutustitle">Promise</h3>
+                    <h3 class="aboutustitle-kr">약속</h3>
+                    <div class="aboutuscontent">
+                        <span style="color: #029835;">고운 말 쓰기</span><br>
+                        <span style="color: #00949E;">출결 잘 지키기</span><br>
+                        <span style="color: #4200AE;">TIL 꾸준히 작성하기</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Balance Game -->
+        <h2 id="gameTitle">논란의 밸런스 게임</h2>
+        <div class="box">
+            <div class="box_row1">
+                <div class="balanceGame" onmouseenter="mouseenterHandler1()" onmouseleave="mouseleaveHandler1()"
+                    id="naeng">물냉 vs 비냉</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler2()" onmouseleave="mouseleaveHandler2()"
+                    id="tang">부먹 vs 찍먹</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler3()" onmouseleave="mouseleaveHandler3()"
+                    id="mint">민초 vs 반민초</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler4()" onmouseleave="mouseleaveHandler4()"
+                    id="drink">코카콜라 vs 펩시</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler5()" onmouseleave="mouseleaveHandler5()"
+                    id="peach">물복 vs 딱복</div>
+            </div>
+            <div class="box_row2">
+                <div class="balanceGame" onmouseenter="mouseenterHandler6()" onmouseleave="mouseleaveHandler6()"
+                    id="fishbun">팥붕 vs 슈붕</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler7()" onmouseleave="mouseleaveHandler7()"
+                    id="noodle">짜장 vs 짬뽕</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler8()" onmouseleave="mouseleaveHandler8()"
+                    id="coffee">뜨아 vs 아아</div>
+                <div class="balanceGame" onmouseenter="mouseenterHandler9()" onmouseleave="mouseleaveHandler9()"
+                    id="pig">삼겹살 vs 목살</div>
+            </div>
+        </div>
+    </div>
+    <div class="mid_image">
+        <h3 id="mid_title">연봉 2조 팀원의 매력을 소개합니다!</h3>
+    </div>
+    <div class="wrap">
+        <!-- Profile -->
+        <div class="profile_title">
+            <h3 style="font-size: 50px; font-weight: bold;">Profile</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="...">
+                        <div class="card">
+                            <h5 class="card-title">최혜미</h5>
+                            <img src="./img/memImgChm.png" alt="" class="card-img-top" />
+                            <div class="card-body">
+                                <span class="mbti">ENTJ</span>
+                                <p class="card-text">카페에 가면<br>
+                                    <strong>무조건</strong><br>
+                                    디저트를 시킴
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="...">
+                        <div class="card">
+                            <h5 class="card-title">정현욱</h5>
+                            <img src="./img/memImgJhu.png" alt="" class="card-img-top" />
+                            <div class="card-body">
+                                <span class="mbti">INTP</span>
+                                <p class="card-text">심히 <strong>즉흥적</strong></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="memberPs.html">
+                        <div class="card">
+                            <h5 class="card-title">박솔</h5>
+                            <img src="./img/memImgPs.png" alt="" class="card-img-top" />
+                            <div class="card-body">
+                                <span class="mbti">ISFJ</span>
+                                <p class="card-text">
+                                    커피가 몸에 <strong>안</strong> 받아요
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <a href="...">
+                        <div class="card">
+                            <h5 class="card-title">선지원</h5>
+                            <img src="./img/memImgSjw.png" alt="" class="card-img-top" />
+                            <div class="card-body">
+                                <span class="mbti">INTJ</span>
+                                <p class="card-text">
+                                    오늘의 공차<br>
+                                    망요 점보 화이트펄<br>
+                                    코코넛 추가<br>
+                                    얼음 <strong>많이</strong> ^.^
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="...">
+                        <div class="card">
+                            <h5 class="card-title">최슬기</h5>
+                            <img src="./img/memImgCsg.png" alt="" class="card-img-top" />
+                            <div class="card-body">
+                                <span class="mbti">ISFJ</span>
+                                <p class="card-text">
+                                    블랙냥 <strong>콩이</strong> 집사<br>
+                                    같이 공부하지 않을래?</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="...">
+                        <div class="card">
+                            <h5 class="card-title">김휘진</h5>
+                            <img src="./img/memImgKhj.png" alt="" class="card-img-top" />
+                            <div class="card-body">
+                                <span class="mbti">ISFP</span>
+                                <p class="card-text">
+                                    코딩 잘하고 싶어요 <br>
+                                    ㅠㅠ<br>
+                                    <strong>초롱이</strong> ^-^ 낮잠 중...
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
