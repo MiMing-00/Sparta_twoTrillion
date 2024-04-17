@@ -10,6 +10,12 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
+    @font-face {
+            font-family: 'cafe24Ssurround';
+            font-style: 'normal';
+            font-weight: 400;
+            src: url('./font/Cafe24Ssurround-v2.0.woff2') format('woff2'),
+        }
 
 
     body {
@@ -21,6 +27,7 @@
     .memberBox {
         box-sizing: border-box;
         width: 800px;
+        height: 400px;
         border-radius: 30px;
         margin: 50px auto 0;
         display: flex;
@@ -37,37 +44,43 @@
     }
 
     .leftBox {
-        width: 400px;
-        padding: 60px;
+        width: 500px;
+        padding: 40px;
+        font-family: 'cafe24Ssurround';
     }
 
     .leftBox>.leftTitle {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
+        font-size: 32px;
     }
 
     .leftBox {
-        font-size: 32px;
+        font-size: 30px;
+        font-weight: bold;
     }
 
     .leftBox .myProfile {
         margin: 20px;
-        font-size: 20px;
+        font-size: 15px;
     }
 
     /* 왼쪽 박스 글 사이 간격 조절 */
     .leftBox .myProfile>div+div {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
     /* 왼쪽 박스 타이틀 스타일 지정 */
     .leftBox .myProfile>div>.title {
-        margin-bottom: 10px;
         font-weight: bold;
+        font-size: 20px
+    }
+    #myContents{
+        line-height: 120%;
     }
 
     .rightBox {
         width: 200px;
-        padding: 60px;
+        padding: 50px;
         text-align: center;
         display: flex;
         justify-content: center;
@@ -79,19 +92,29 @@
         height: 200px;
         background-image: url(./img/memImgSjw.png);
         background-size: cover;
-        margin: 0 auto;
+        margin: -20px auto 20px 11px;
     }
 
     .rightBoxTxt {
-        text-align: left;
+        text-align: center;
     }
 
     .rightBoxTxt>p {
         font-size: 24px;
+        font-weight: bold;
+        font-family: 'cafe24Ssurround';
     }
 
     .rightBoxTxt>p+p {
-        margin-top: 30px;
+        margin-top: 15px;
+    }
+
+    #message {
+        border-radius: 30px;
+        padding: 0px 0px 20px 0px;
+        font-weight: 400;
+        color:rgb(255, 103, 164);
+        font-size: 15px;
     }
 
     /* 뒤로 가기 버튼 */
@@ -108,11 +131,11 @@
 
     .commentList {
         padding: 30px;
-        width: 1440px;
+        width: 800px;
         margin: 30px auto;
         border: 3px solid #000000;
         border-radius: 30px;
-        font-size: 18px;
+        font-size: 20px;
         box-sizing: border-box;
         background-color: beige;
         font-family: "Noto Sans KR", sans-serif;
@@ -120,7 +143,8 @@
 
     .commentList>h3 {
         margin-bottom: 20px;
-        font-size: 20px;
+        font-size: 22px;
+        font-weight: bold;
     }
 
     .userComment {
@@ -137,11 +161,13 @@
     .nickname {
         font-size: 18px;
         font-weight: 550;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     .pw {
         font-size: 18px;
         font-weight: 550;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     .comment {
@@ -152,38 +178,60 @@
     }
 
     .commentLi {
-        border: 2px solid black;
+        border: 3px dashed black;
+        border-radius: 10px;
         padding: 10px;
         display: flex;
         justify-content: space-between;
+        background-color: white;
     }
 
     .commentLi+.commentLi {
         margin-top: 10px;
     }
 
-
-
     .commentForm {
-        width: 1440px;
-        border: 1px solid rgb(144, 198, 239);
+        width: 800px;
+        border: 3.5px dashed rgb(0, 0, 0);
+        border-radius: 30px;
+        background-color: rgb(113, 74, 54);
         box-sizing: border-box;
-        padding: 60px;
-        margin: 0 auto;
+        padding: 30px;
+        margin: 0 auto 20px auto;
     }
 
     #like {
         width: 25px;
-        fill: red;
+        fill: rgb(255, 96, 181);
     }
 
     #like:hover {
-        fill: green;
+        fill: rgb(255, 211, 16);
         cursor: pointer;
     }
 
     #likeNum {
         color: grey;
+        font-size: 20px;
+    }
+
+    .liLeft {
+        margin-left: 1%;
+    }
+
+    #cmName {
+        font-weight: bold;
+    }
+
+    .liRight {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        margin-right: 2%;
+    }
+
+    .coNiPw {
+        color: white;
     }
 
     .button {
@@ -191,7 +239,10 @@
         font-size: 15px;
         font-style: inherit;
         background-color: #88fba6;
-        color: rgb(18, 10, 10);
+        border-radius: 50px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     .commentUp {
@@ -283,20 +334,20 @@
     <div class="memberBox">
         <div class="leftBox">
             <div class="leftTitle">
-                <연봉 2조> 멤버 프로필
+                <연봉 2조> 선지원 프로필
             </div>
             <div class="myProfile">
                 <div class="Advantages">
-                    <p class="title">객관적인 자신의 장점</p>
-                    <p>내용을 적어주세요.</p>
+                    <p class="title">자신의 장점</p>
+                    <p id= "myContents">저의 세심함은 완성도 높은 프로젝트를 만드는데<br>효과적으로 작용할 것으로 기대됩니다!</p>
                 </div>
                 <div class="myStyle">
                     <p class="title">자신의 스타일</p>
-                    <p>내용을 적어주세요.</p>
+                    <p id= "myContents">먼저 계획을 세운 다음<br>차근차근 이행하는 것을 좋아합니다 ^.^</p>
                 </div>
                 <div class="collaboStyle">
-                    <p class="title">협력 스타일</p>
-                    <p>내용을 적어주세요.</p>
+                    <p class="title">협업 스타일</p>
+                    <p id= "myContents">리더형보다는 팔로워형에 가깝지만,<br>좋은 아이디어가 있다면 팀원분들과 공유하며<br>더 멋진 프로젝트를 만들고자 합니다!</p>
                 </div>
                 <div class="blogLink">
                     <!-- 아래 링크 수정하면 됩니다 임시로 네이버 넣어놨어요 -->
@@ -308,9 +359,9 @@
             <div class="rightBoxImg">
             </div>
             <div class="rightBoxTxt">
-                <p>이름 | 선지원</p>
-                <p>MBTI | INTJ</p>
-                <p>자기소개</p>
+                <p>선지원</p>
+                <p>INTJ</p>
+                <p id="message">안녕하세요!<br>React 5기 <연봉 2조> 팀원 선지원입니다!</p>
             </div>
         </div>
     </div>
@@ -319,8 +370,8 @@
         <ul class="userComment">
             <li class="commentLi">
                 <div class="liLeft">
-                    <p>박솔</p>
-                    <p>와 너무 멋져요!</p>
+                    <p id="cmName">김래준 매니저</p>
+                    <p>지원님 ~ 좋습니다!</p>
                 </div>
                 <div class="liRight">
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
@@ -332,8 +383,8 @@
             </li>
             <li class="commentLi">
                 <div class="liLeft">
-                    <p>김휘진</p>
-                    <p>친해지고 싶어요 ㅠㅠ</p>
+                    <p id="cmName">최이진 매니저</p>
+                    <p>지원님 ~ 살아계신가요?</p>
                 </div>
                 <div class="liRight">
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
@@ -343,10 +394,10 @@
                     <p id="likeNum">12</p>
                 </div>
             </li>
-            <li class="commentLi">
+            <!--<li class="commentLi">
                 <div class="liLeft">
                     <p>최혜미</p>
-                    <p>인스타 아이디 알려주세요</p>
+                    <p>인스타 아이디 알려주세요~</p>
                 </div>
                 <div class="liRight">
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
@@ -368,18 +419,20 @@
                     </svg>
                     <p id="likeNum">12</p>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
     <div class="commentForm">
-        <div class="commentNickPw">
-            <div class="nickname">
-                <label for="nickname">Nickname:</label>
-                <input type="text" name="nickname" id="nickname" required>
-            </div>
-            <div class="pw">
-                <label for="pw">PW:</label>
-                <input type="text" name="pw" id="pw" required>
+        <div class="coNiPw">
+            <div class="commentNickPw">
+                <div class="nickname">
+                    <label for="nickname">Nickname:</label>
+                    <input type="text" name="nickname" id="nickname" required>
+                </div>
+                <div class="pw">
+                    <label for="pw">PW:</label>
+                    <input type="text" name="pw" id="pw" required>
+                </div>
             </div>
         </div>
         <div class=commentUp>
