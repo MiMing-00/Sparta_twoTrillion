@@ -1,3 +1,13 @@
+// Top Button
+const topBtn = document.querySelector(".topBtn");
+topBtn.addEventListener("click", function () {
+    window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+    })
+})
+
 // About Us 페이드인 효과
 $().ready(function () {
     $('div.circle1').fadeIn(1000);

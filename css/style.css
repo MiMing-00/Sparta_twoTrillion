@@ -22,6 +22,19 @@ body {
     min-width: 1920px;
 }
 
+/* Top Button */
+.topBtn {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    width: 100px;
+    height: 100px;
+    background-image: url(../img/upImage2.png);
+    background-size: contain;
+
+    cursor: pointer;
+}
+
 /* header */
 .header_up {
     background-color: #149B3B;
