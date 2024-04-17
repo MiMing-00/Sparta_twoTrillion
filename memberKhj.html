@@ -8,13 +8,18 @@
     <title>Document</title>
 </head>
 <style>
+    body {
+        background-color:blanchedalmond;
+    }
     .memberBox {
         box-sizing: border-box;
-        width: 1440px;
+        width: 100%;
         border-radius: 15px;
         margin: 100px auto 0;
         display: flex;
         gap: 40px;
+        justify-content: center;
+
     }
     @keyframes drop {
         from {
@@ -29,14 +34,14 @@
 
     .leftBox,
     .rightBox {
-        border: 1pc solid green;
+        border: 1pc solid rgba(1, 55, 142, 0.423);
         border-radius: 15px;
         animation: drop 1.5s ease-out;
 
     }
 
     .leftBox {
-        width: 900px;
+        width: 500px;
         padding: 60px;
     }
 
@@ -371,7 +376,7 @@
             <li class="commentLi">
                 <div class="liLeft">
                     <p>김휘진</p>
-                    <p>친해지고 싶어요 ㅠㅠ</p>
+                    <p>무수한 관심의 댓글 감사합니다~!!</p>
                 </div>
                 <div class="liRight">
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
