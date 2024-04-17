@@ -170,11 +170,6 @@
             margin-bottom: 20px;
         }
 
-        .commentNickPw label {
-            font-size: 20px;
-            color: #39FF14;
-        }
-
         .nickname {
             font-size: 18px;
             font-weight: 550;
@@ -193,7 +188,6 @@
         }
 
         .commentLi {
-            font-size: 20px;
             border: 3px solid #39FF14;
             border-radius: 20px;
             padding: 20px 30px;
@@ -205,7 +199,7 @@
             margin-top: 10px;
         }
 
-        .commentLi p:first-child {
+        .commentLi p:first-child{
             font-weight: bold;
         }
 
@@ -217,26 +211,11 @@
             padding: 60px;
             margin: 0 auto;
         }
-
         .liRight {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .liRight button {
-            font-family: "Noto Sans KR", sans-serif;
-            background: none;
-            border: none;
-            color: #39FF14;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .liRight button:hover {
-            color: #fff;
-        }
-
         #like {
             width: 25px;
             fill: #39FF14;
@@ -260,11 +239,6 @@
             background-color: #39FF14;
             color: #000;
             border-radius: 10px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: white;
-            color: #39FF14;
         }
 
         .commentUp {
@@ -278,9 +252,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 
         // Firebase 구성 정보 설정
@@ -302,31 +274,28 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // 댓글 등록 addDoc() 을 setDoc()으로 바꾸기
         $("#postingBtn").click(async function () {
             let nickname = $('#nickname').val();
             let pw = $('#pw').val();
             let comment = $('#comment').val();
-            const commentId = Date.now().toString()
 
-            const data = {
+            let doc = {
                 'nickname': nickname,
                 'pw': pw,
-                'comment': comment,
+                'comment': comment
             };
-            ;
-            await setDoc(doc(db, "webComments", commentId), data);
-            alert('댓글이 작성되었습니다.');
-            window.location.reload();
-        });
 
-        let docs = await getDocs(collection(db, "webComments"));
+            await addDoc(collection(db, "comments"), doc);
+            alert('댓글이 작성되었습니다.')
+            window.location.reload();
+        })
+
+        let docs = await getDocs(collection(db, "comments"));
         docs.forEach((doc) => {
             let row = doc.data();
             let nickname = row['nickname'];
             let pw = row['pw'];
             let comment = row['comment'];
-            let id = doc.id;
 
             let temp_html = `            
             <li class="commentLi">
@@ -335,8 +304,6 @@
                     <p>${comment}</p>
                 </div>
                 <div class="liRight">
-                    <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
                         viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path
@@ -355,66 +322,6 @@
             likeNum.innerText = +likeNum.innerText + 1
         }))
 
-        const mAD = document.getElementById("moddelBtn")
-
-        // 댓글 삭제
-        async function clickDeleteBtn(event) {
-            const id = event.target.dataset.id
-
-            const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
-            if (needPwdel === null) {
-                return;
-            }
-
-            const comment = await getDoc(doc(db, "webComments", id));
-            const data = comment.data();
-
-            if (data.pw === needPwdel) {
-                await deleteDoc(doc(db, "webComments", id));
-                alert("삭제되었습니다.");
-                window.location.reload();
-            } else {
-                alert("비밀번호가 다릅니다.");
-            }
-        }
-
-        // 삭제 버튼 누르면 실행
-        document.querySelectorAll(".delBtn").forEach((item) => {
-            item.addEventListener("click", clickDeleteBtn);
-        });
-
-        // 댓글 수정
-        async function clickModifyBtn(event) {
-            const id = event.target.dataset.id;
-
-            const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
-            if (needPwModi === null) {
-                return;
-            }
-
-            const commentDoc = await getDoc(doc(db, "webComments", id));
-
-            const data = commentDoc.data();
-            if (data.pw === needPwModi) {
-                const newComment = prompt("수정할 댓글을 입력해주세요.", "댓글");
-                if (newComment === null) {
-                    alert("댓글이 입력되지 않았습니다.")
-                    return;
-                }
-                await updateDoc(doc(db, "webComments", id), {
-                    'comment': newComment
-                });
-                window.location.reload();
-            } else {
-                alert("비밀번호가 다릅니다.");
-            }
-        }
-
-        // 수정 버튼 누르면 실행
-        // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
-        document.querySelectorAll(".modiBtn").forEach((item) => {
-            item.addEventListener("click", clickModifyBtn);
-        });
     </script>
 </head>
 
