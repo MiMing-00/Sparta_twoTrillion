@@ -197,13 +197,13 @@
         let comment = $('#comment').val();
         const commentId = Date.now().toString()
 
-        const dict = {
+        const data = {
             'nickname': nickname,
             'pw': pw,
             'comment': comment,
         };
 ;
-        await setDoc(doc(db, "webComments", commentId), dict);
+        await setDoc(doc(db, "webComments", commentId), data);
         alert('댓글이 작성되었습니다.');
         window.location.reload();
     });
@@ -242,9 +242,9 @@
 
         const comment = await getDoc(doc(db, "webComments", id));
     
-        const dict = comment.data();
+        const data = comment.data();
     
-        if (dict.pw === needPwdel) {
+        if (data.pw === needPwdel) {
             await deleteDoc(doc(db, "webComments", id));
             alert("삭제되었습니다.");
             window.location.reload();
