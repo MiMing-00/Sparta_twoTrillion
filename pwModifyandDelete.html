@@ -170,7 +170,7 @@
     import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    import { deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
     // Firebase 구성 정보 설정
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -202,7 +202,7 @@
             'pw': pw,
             'comment': comment,
         };
-;
+        ;
         await setDoc(doc(db, "webComments", commentId), data);
         alert('댓글이 작성되었습니다.');
         window.location.reload();
@@ -222,7 +222,7 @@
             <p>${comment}</p>
             <div class="moddelBtn" id = "moddelBtn">
                     <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>
+                    <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
             </div>
         </li>`
         $('.userComment').append(temp_html);
@@ -234,16 +234,15 @@
     // 댓글 삭제
     async function clickDeleteBtn(event) {
         const id = event.target.dataset.id
-    
+
         const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
         if (needPwdel === null) {
             return;
         }
 
         const comment = await getDoc(doc(db, "webComments", id));
-    
         const data = comment.data();
-    
+
         if (data.pw === needPwdel) {
             await deleteDoc(doc(db, "webComments", id));
             alert("삭제되었습니다.");
@@ -253,12 +252,43 @@
         }
     }
 
-    // 삭제 버튼 누르면 실행 실행
+    // 삭제 버튼 누르면 실행
     document.querySelectorAll(".delBtn").forEach((item) => {
         item.addEventListener("click", clickDeleteBtn);
     });
 
+    // 댓글 수정
+    async function clickModifyBtn(event) {
+        const id = event.target.dataset.id;
 
+        const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        if (needPwModi === null) {
+            return;
+        }
+
+        const commentDoc = await getDoc(doc(db, "webComments", id));
+
+        const data = commentDoc.data();
+        if (data.pw === needPwModi) {
+            const newComment = prompt("수정할 댓글을 입력해주세요.","댓글");
+            if (newComment === null) {
+                alert("댓글이 입력되지 않았습니다.")
+                return;
+            }
+            await updateDoc(doc(db, "webComments", id), {
+                'comment' : newComment
+            });
+            window.location.reload();
+        } else {
+            alert("비밀번호가 다릅니다.");
+        }
+    }
+
+    // 수정 버튼 누르면 실행
+    // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
+    document.querySelectorAll(".modiBtn").forEach((item) => {
+        item.addEventListener("click", clickModifyBtn);
+    });
 
 </script>
 
