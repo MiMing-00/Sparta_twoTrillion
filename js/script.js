@@ -46,3 +46,25 @@ function mouseleaveHandler8() {document.getElementById("coffee").textContent="�
 
 function mouseenterHandler9() {document.getElementById("pig").textContent="3 삼겹살 vs 목살 3";}
 function mouseleaveHandler9() {document.getElementById("pig").textContent="삼겹살 vs 목살";} 
+
+// scroll animation
+
+$(window).scroll(function(){
+    let scrollTop = $(window).scrollTop();
+    let innerHeight = $(window).innerHeight();
+    
+    let profileY = $('.profile_title').offset().top + $('.profile_title').height();
+    let profile = document.getElementById("container")
+    
+    if ((profileY - scrollTop) <= innerHeight){
+        profile.className = "container profileAni"
+    }
+
+    // balance game
+    let balanceY = $('.box_row1').offset().top + $('.box_row1').height();
+    let balance = document.getElementById("balanceBox")
+    
+    if ((balanceY - scrollTop) <= innerHeight){
+        balance.className = "box balanceAni"
+    }
+})
