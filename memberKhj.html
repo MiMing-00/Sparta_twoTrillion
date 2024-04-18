@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/reset.css" rel="stylesheet" type="text/css" />
-    <title><연봉 2조> 김휘진 프로필</title>
+    <title>
+        <연봉 2조> 김휘진 프로필
+    </title>
 </head>
 <style>
     body {
-        background-color:blanchedalmond;
+        background-color: rgba(209, 209, 144, 0.623);
     }
+
     .memberBox {
         box-sizing: border-box;
-        width: 100%;
+        width: 1500px;
+        height: 800px;
         border-radius: 15px;
         margin: 100px auto 0;
         display: flex;
@@ -21,19 +25,22 @@
         justify-content: center;
 
     }
+
     @keyframes drop {
         from {
             transform: translateY(-90%);
         }
+
         to {
-               transform: translateY(0%);
+            transform: translateY(0%);
         }
     }
 
     .leftBox,
     .rightBox {
-        border: 1pc solid rgba(1, 55, 142, 0.423);
-        border-radius: 15px;
+
+        border: 15px solid rgba(0, 0, 0, 0.812);
+        border-radius: 100px;
         animation: drop 1.5s ease;
     }
 
@@ -79,9 +86,9 @@
         width: 350px;
         height: 350px;
         background-image: url(./img/memImgKhj.png);
-        background-size:cover ;
+        background-size: cover;
         background-repeat: no-repeat;
-        margin: auto 80px auto auto ;
+        margin: auto 80px auto auto;
     }
 
     .rightBoxTxt {
@@ -95,9 +102,10 @@
     .rightBoxTxt>p+p {
         margin-top: 30px;
     }
+
     .cholong {
-        width: 450px;
-        height: 250px;
+        width: 50%;
+        height:200px;
     }
 
     /* 뒤로 가기 버튼 */
@@ -111,48 +119,59 @@
         background-size: contain;
         cursor: pointer;
     }
+
     #name {
         box-sizing: border-box;
         border: 4px ridge green;
         border-radius: 10px;
     }
+
     #mbti {
         box-sizing: border-box;
         border: 4px ridge green;
         border-radius: 10px;
     }
+
     #introduce {
         box-sizing: border-box;
         border: 4px ridge green;
         border-radius: 10px;
         line-height: 35px;
     }
+
     .Advantages {
         line-height: 30px;
         font-size: 22px;
         margin: 10px auto 10px auto;
     }
+
     .myStyle {
         line-height: 30px;
         font-size: 22px;
         margin: 10px auto 10px auto;
     }
+
     .collaboStyle {
         line-height: 30px;
         font-size: 22px;
         margin: 10px auto 10px auto;
     }
+
     .blogLink {
-        line-height: 40px;
         font-size: 22px;
-        margin: 10px auto 10px auto;
+        margin: -25% auto 10px -5%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap:20px;
     }
 
     .commentList {
         padding: 30px;
         width: 1440px;
         margin: 30px auto;
-        border: 1px solid #000000;
+        border: 15px solid rgba(0, 0, 0, 0.812);
+        border-radius: 50px;
         font-size: 18px;
         box-sizing: border-box;
         animation: drop 1.5s ease;
@@ -191,21 +210,22 @@
     }
 
     .commentLi {
-        border: 1px solid green;
+        border: 5px ridge rgba(249, 246, 184, 0.812);
         padding: 10px;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
     }
 
     .commentLi+.commentLi {
         margin-top: 10px;
     }
-
     
+
+
 
     .commentForm {
         width: 1440px;
-        border: 1px solid rgb(144, 198, 239);
+        border: 15px solid rgba(0, 0, 0, 0.812);
         box-sizing: border-box;
         padding: 60px;
         margin: 0 auto;
@@ -214,6 +234,8 @@
     #like {
         width: 25px;
         fill: red;
+        vertical-align: middle;
+
     }
 
     #like:hover {
@@ -223,6 +245,7 @@
 
     #likeNum {
         color: grey;
+
     }
 
     .button {
@@ -237,6 +260,22 @@
         display: flex;
         gap: 20px;
     }
+
+    .liRight {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin:0px 0px auto 0px;
+    }
+
+    .moddelBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    margin-bottom: -30px;
+    }
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module">
@@ -312,12 +351,19 @@
 
         let temp_html = `            
         <li class="commentLi">
-            <p>${nickname}</p>
-            <p>${comment}</p>
+            <p class = "nicknameComment">${nickname}</p>
+            <p class = "commentComment">${comment}</p>
             <div class="moddelBtn" id = "moddelBtn">
                     <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
                     <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
             </div>
+            <div class="liRight">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
+                        <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                    </svg>
+                    <p id="likeNum"></p>
+                </div>
         </li>`
         $('.userComment').append(temp_html);
     });
@@ -332,34 +378,34 @@
 
     const mAD = document.getElementById("moddelBtn")
 
-// 댓글 삭제
-async function clickDeleteBtn(event) {
-    const id = event.target.dataset.id
+    // 댓글 삭제
+    async function clickDeleteBtn(event) {
+        const id = event.target.dataset.id
 
-    const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
-    if (needPwdel === null) {
-        return;
+        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        if (needPwdel === null) {
+            return;
+        }
+
+        const comment = await getDoc(doc(db, "webComments", id));
+        const data = comment.data();
+
+        if (data.pw === needPwdel) {
+            await deleteDoc(doc(db, "webComments", id));
+            alert("삭제되었습니다.");
+            window.location.reload();
+        } else {
+            alert("비밀번호가 다릅니다.");
+        }
     }
 
-    const comment = await getDoc(doc(db, "webComments", id));
-    const data = comment.data();
+    // 삭제 버튼 누르면 실행
+    document.querySelectorAll(".delBtn").forEach((item) => {
+        item.addEventListener("click", clickDeleteBtn);
+    });
 
-    if (data.pw === needPwdel) {
-        await deleteDoc(doc(db, "webComments", id));
-        alert("삭제되었습니다.");
-        window.location.reload();
-    } else {
-        alert("비밀번호가 다릅니다.");
-    }
-}
-
-// 삭제 버튼 누르면 실행
-document.querySelectorAll(".delBtn").forEach((item) => {
-    item.addEventListener("click", clickDeleteBtn);
-});
-
-// 댓글 수정 promt 2중 설계
-async function clickModifyBtn(event) {
+    // 댓글 수정 promt 2중 설계
+    async function clickModifyBtn(event) {
         const id = event.target.dataset.id;
 
         const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
@@ -372,13 +418,13 @@ async function clickModifyBtn(event) {
 
         const data = commentDoc.data();
         if (data.pw === needPwModi) {
-            const newComment = prompt("수정할 댓글을 입력해주세요.","댓글");
+            const newComment = prompt("수정할 댓글을 입력해주세요.", "댓글");
             if (newComment === null) {
                 alert("댓글이 입력되지 않았습니다.")
                 return;
             }
             await updateDoc(doc(db, "webComments", id), {
-                'comment' : newComment
+                'comment': newComment
             });
             window.location.reload();
         } else {
@@ -386,11 +432,11 @@ async function clickModifyBtn(event) {
         }
     }
 
-// 수정 버튼 누르면 실행
-// modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
-document.querySelectorAll(".modiBtn").forEach((item) => {
-    item.addEventListener("click", clickModifyBtn);
-});
+    // 수정 버튼 누르면 실행
+    // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
+    document.querySelectorAll(".modiBtn").forEach((item) => {
+        item.addEventListener("click", clickModifyBtn);
+    });
 </script>
 
 <body>
@@ -419,11 +465,11 @@ document.querySelectorAll(".modiBtn").forEach((item) => {
                         임무수행 열심히 하겠습니다~!
                     </p>
                 </div>
+                <img class="cholong" img src="img/초롱이.jpg">
                 <div class="blogLink">
                     <!-- 아래 링크 수정하면 됩니다 임시로 네이버 넣어놨어요 -->
-                    <a href="https://velog.io/@hwijinkim22/posts/"target = "_blank">블로그 링크</a><br>
-                    <a href="https://github.com/hwijinkim22/"target = "_blank">깃허브 링크</a><br>
-                    <img class = "cholong" img src = "img/초롱이.jpg">
+                    <a href="https://velog.io/@hwijinkim22/posts/" target="_blank">velog</a>
+                    <a href="https://github.com/hwijinkim22/" target="_blank">Github</a><br>
                 </div>
             </div>
         </div>
@@ -431,74 +477,19 @@ document.querySelectorAll(".modiBtn").forEach((item) => {
             <div class="rightBoxImg">
             </div>
             <div class="rightBoxTxt">
-                <p id = "name">이름: 김휘진</p>
-                <p id = "mbti">MBTI: ISFP</p>
-                <p id = "introduce">자기소개: 안녕하세요! 나이 9살 먹은 귀여운
-                포메라니안 초롱이를 키우고 있습니다. 같이 낮잠자고 싶어요...
-            </p>
+                <p id="name">이름: 김휘진</p>
+                <p id="mbti">MBTI: ISFP</p>
+                <p id="introduce">자기소개: 안녕하세요! 나이 9살 먹은 귀여운
+                    포메라니안 초롱이를 키우고 있습니다. 같이 낮잠자고 싶어요...
+                </p>
             </div>
         </div>
     </div>
     <div class="commentList">
         <h3>댓글 목록</h3>
         <ul class="userComment">
-            <li class="commentLi">
-                <div class="liLeft">
-                    <p>박솔</p>
-                    <p>와 너무 멋져요!</p>
-                </div>
-                <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
-                        <path
-                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                    </svg>
-                    <p id="likeNum">12</p>
-                </div>
-            </li>
-            <li class="commentLi">
-                <div class="liLeft">
-                    <p>김휘진</p>
-                    <p>무수한 관심의 댓글 감사합니다~!!</p>
-                </div>
-                <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
-                        <path
-                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                    </svg>
-                    <p id="likeNum">12</p>
-                </div>
-            </li>
-            <li class="commentLi">
-                <div class="liLeft">
-                    <p>최혜미</p>
-                    <p>인스타 아이디 알려주세요</p>
-                </div>
-                <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
-                        <path
-                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                    </svg>
-                    <p id="likeNum">12</p>
-                </div>
-            </li>
-            <li class="commentLi">
-                <div class="liLeft">
-                    <p>선지원</p>
-                    <p>오늘 저메추 해주세요!</p>
-                </div>
-                <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512">
-                        <path
-                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                    </svg>
-                    <p id="likeNum">12</p>
-                </div>
-            </li>
         </ul>
+
     </div>
     <div class="commentForm">
         <div class="commentNickPw">
