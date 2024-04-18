@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/reset.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>oneieo</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
     @font-face {
-            font-family: 'cafe24Ssurround';
-            font-style: 'normal';
-            font-weight: 400;
-            src: url('./font/Cafe24Ssurround-v2.0.woff2') format('woff2'),
-        }
+        font-family: 'cafe24Ssurround';
+        font-style: 'normal';
+        font-weight: 400;
+        src: url('./font/Cafe24Ssurround-v2.0.woff2') format('woff2'),
+    }
 
 
     body {
@@ -26,8 +26,7 @@
 
     .memberBox {
         box-sizing: border-box;
-        width: 800px;
-        height: 400px;
+        width: 1400px;
         border-radius: 30px;
         margin: 50px auto 0;
         display: flex;
@@ -37,49 +36,75 @@
 
     .leftBox,
     .rightBox {
-        border: 3px solid black;
+        border: 4px solid black;
         border-radius: 30px;
         background-color: beige;
         font-family: "Noto Sans KR", sans-serif;
     }
 
     .leftBox {
-        width: 500px;
-        padding: 40px;
+        width: 800px;
+        padding: 60px;
         font-family: 'cafe24Ssurround';
     }
 
     .leftBox>.leftTitle {
-        margin-bottom: 40px;
-        font-size: 32px;
+        margin-bottom: 50px;
+        font-size: 57px;
+        text-align: center;
+        margin-right: 10px;
     }
 
     .leftBox {
-        font-size: 30px;
-        font-weight: bold;
+        font-size: 50px;
     }
 
     .leftBox .myProfile {
         margin: 20px;
-        font-size: 15px;
+        font-size: 27px;
     }
 
     /* 왼쪽 박스 글 사이 간격 조절 */
     .leftBox .myProfile>div+div {
-        margin-top: 10px;
+        margin-top: 15px;
     }
 
     /* 왼쪽 박스 타이틀 스타일 지정 */
     .leftBox .myProfile>div>.title {
         font-weight: bold;
-        font-size: 20px
-    }
-    #myContents{
-        line-height: 120%;
+        font-size: 40px;
+        margin-bottom: 10px;
     }
 
+    #myContents {
+        line-height: 130%;
+        font-weight: 100;
+        color: #565656;
+    }
+
+    .bloglink {
+        text-align: right;
+    }
+    
+    .blogLink a {
+            font-size: 25px;
+            text-decoration: none;
+            outline: none;
+            color: rgb(103, 161, 255);
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        .blogLink a:hover,
+        .blogLink a:active {
+            text-decoration: none;
+            color: rgb(255, 103, 164);
+        }
+
+
+
     .rightBox {
-        width: 200px;
+        width: 400px;
         padding: 50px;
         text-align: center;
         display: flex;
@@ -88,11 +113,11 @@
     }
 
     .rightBoxImg {
-        width: 200px;
-        height: 200px;
+        width: 400px;
+        height: 400px;
         background-image: url(./img/memImgSjw.png);
         background-size: cover;
-        margin: -20px auto 20px 11px;
+        margin: -20px auto 20px auto;
     }
 
     .rightBoxTxt {
@@ -100,21 +125,20 @@
     }
 
     .rightBoxTxt>p {
-        font-size: 24px;
+        font-size: 40px;
         font-weight: bold;
         font-family: 'cafe24Ssurround';
     }
 
     .rightBoxTxt>p+p {
-        margin-top: 15px;
+        margin-top: 20px;
     }
 
     #message {
-        border-radius: 30px;
-        padding: 0px 0px 20px 0px;
+        padding: 0px 0px 10px 0px;
         font-weight: 400;
-        color:rgb(255, 103, 164);
-        font-size: 15px;
+        color: rgb(255, 103, 164);
+        font-size: 30px;
     }
 
     /* 뒤로 가기 버튼 */
@@ -131,19 +155,19 @@
 
     .commentList {
         padding: 30px;
-        width: 800px;
+        width: 1400px;
         margin: 30px auto;
-        border: 3px solid #000000;
+        border: 4px solid #000000;
         border-radius: 30px;
-        font-size: 20px;
+        font-size: 30px;
         box-sizing: border-box;
         background-color: beige;
         font-family: "Noto Sans KR", sans-serif;
     }
 
     .commentList>h3 {
-        margin-bottom: 20px;
-        font-size: 22px;
+        margin-bottom: 30px;
+        font-size: 35px;
         font-weight: bold;
     }
 
@@ -159,26 +183,39 @@
     }
 
     .nickname {
-        font-size: 18px;
+        font-size: 30px;
         font-weight: 550;
         font-family: "Noto Sans KR", sans-serif;
     }
 
+    #nickname {
+        font-size: 25px;
+        width: 200px;
+        margin-left: 10px;
+    }
+
     .pw {
-        font-size: 18px;
+        font-size: 30px;
         font-weight: 550;
         font-family: "Noto Sans KR", sans-serif;
+    }
+
+    #pw {
+        font-size: 25px;
+        width: 200px;
+        margin-left: 10px;
     }
 
     .comment {
         width: 100%;
         border-style: solid;
-        font-size: 18px;
+        font-size: 30px;
         font-weight: 450;
+        font-family: "Noto Sans KR", sans-serif;
     }
 
     .commentLi {
-        border: 3px dashed black;
+        border: 4px dashed black;
         border-radius: 10px;
         padding: 10px;
         display: flex;
@@ -191,8 +228,8 @@
     }
 
     .commentForm {
-        width: 800px;
-        border: 3.5px dashed rgb(0, 0, 0);
+        width: 1400px;
+        border: 4px dashed rgb(0, 0, 0);
         border-radius: 30px;
         background-color: rgb(113, 74, 54);
         box-sizing: border-box;
@@ -201,7 +238,7 @@
     }
 
     #like {
-        width: 25px;
+        width: 35px;
         fill: rgb(255, 96, 181);
     }
 
@@ -212,7 +249,7 @@
 
     #likeNum {
         color: grey;
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .liLeft {
@@ -234,20 +271,37 @@
         color: white;
     }
 
+    .modiBtn, .delBtn {
+        border: none;
+        background: transparent;  
+        color: grey;
+        font-size: 20px;
+        font-weight: 400;
+        font-family: "Noto Sans KR", sans-serif;
+    }
+
     .button {
-        width: 100px;
-        font-size: 15px;
+        width: 150px;
+        font-size: 23px;
         font-style: inherit;
-        background-color: #88fba6;
+        padding-bottom: 5px;
+        background-color: #22d953;
+        border: 3.5px solid;
         border-radius: 50px;
         color: rgb(0, 0, 0);
+        cursor: pointer;
         font-weight: bold;
         font-family: "Noto Sans KR", sans-serif;
     }
 
+    .button:hover {
+        background-color: rgb(255, 96, 181);
+        border: 3.5px solid;
+    }
+
     .commentUp {
         display: flex;
-        gap: 20px;
+        gap: 33px;
     }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -277,12 +331,13 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // 댓글 등록 addDoc()을 setDoc()으로 바꾸기
+
+    // 댓글 등록 addDoc() 을 setDoc()으로 바꾸기
     $("#postingBtn").click(async function () {
         let nickname = $('#nickname').val();
         let pw = $('#pw').val();
         let comment = $('#comment').val();
-        const commentId = Date.now().toString();
+        const commentId = Date.now().toString()
 
         const data = {
             'nickname': nickname,
@@ -291,9 +346,9 @@
         };
 
         await setDoc(doc(db, "webComments", commentId), data);
-            alert('댓글이 작성되었습니다.');
-            window.location.reload();
-        });
+        alert('댓글이 작성되었습니다.');
+        window.location.reload();
+    });
 
     let docs = await getDocs(collection(db, "webComments"));
     docs.forEach((doc) => {
@@ -320,8 +375,8 @@
                     <p id="likeNum">0</p>
                 </div>
             </li>`
-            $('.userComment').append(temp_html);
-        });
+        $('.userComment').append(temp_html);
+    });
 
     const heartBtn = document.querySelectorAll('.like')
     heartBtn.forEach((target) => target.addEventListener('click', function () {
@@ -333,64 +388,64 @@
     const mAD = document.getElementById("moddelBtn")
 
     async function clickDeleteBtn(event) {
-            const id = event.target.dataset.id
+        const id = event.target.dataset.id
 
-            const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
-            if (needPwdel === null) {
-                alert("비밀번호가 입력되지 않았습니다.");
-                return;
-            }
-
-            const comment = await getDoc(doc(db, "webComments", id));
-            const data = comment.data();
-
-            if (data.pw === needPwdel) {
-                await deleteDoc(doc(db, "webComments", id));
-                alert("삭제되었습니다.");
-                window.location.reload();
-            } else {
-                alert("비밀번호가 다릅니다.");
-            }
+        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        if (needPwdel === null) {
+            alert("비밀번호가 입력되지 않았습니다.");
+            return;
         }
 
-        // 삭제 버튼 누르면 실행
-        document.querySelectorAll(".delBtn").forEach((item) => {
-            item.addEventListener("click", clickDeleteBtn);
-        });
+        const comment = await getDoc(doc(db, "webComments", id));
+        const data = comment.data();
 
-        // 댓글 수정
-        async function clickModifyBtn(event) {
-            const id = event.target.dataset.id;
+        if (data.pw === needPwdel) {
+            await deleteDoc(doc(db, "webComments", id));
+            alert("삭제되었습니다.");
+            window.location.reload();
+        } else {
+            alert("비밀번호가 다릅니다.");
+        }
+    }
 
-            const needPwModi = prompt("댓글 수정을 위해 비밀번호를 입력하세요.", "비밀번호");
-            if (needPwModi === null) {
-                alert("비밀번호가 입력되지 않았습니다.");
-                return;
-            }
+    // 삭제 버튼 누르면 실행
+    document.querySelectorAll(".delBtn").forEach((item) => {
+        item.addEventListener("click", clickDeleteBtn);
+    });
 
-            const commentDoc = await getDoc(doc(db, "webComments", id));
+    // 댓글 수정
+    async function clickModifyBtn(event) {
+        const id = event.target.dataset.id;
 
-            const data = commentDoc.data();
-            if (data.pw === needPwModi) {
-                const newComment = prompt("수정할 내용을 입력해주세요.", "내용");
-                if (newComment === null) {
-                    alert("내용이 입력되지 않았습니다.")
-                    return;
-                }
-                await updateDoc(doc(db, "webComments", id), {
-                    'comment': newComment
-                });
-                window.location.reload();
-            } else {
-                alert("비밀번호가 다릅니다.");
-            }
+        const needPwModi = prompt("댓글 수정을 위해 비밀번호를 입력하세요.", "비밀번호");
+        if (needPwModi === null) {
+            alert("비밀번호가 입력되지 않았습니다.");
+            return;
         }
 
-        // 수정 버튼 누르면 실행
-        // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
-        document.querySelectorAll(".modiBtn").forEach((item) => {
-            item.addEventListener("click", clickModifyBtn);
-        });
+        const commentDoc = await getDoc(doc(db, "webComments", id));
+
+        const data = commentDoc.data();
+        if (data.pw === needPwModi) {
+            const newComment = prompt("수정할 내용을 입력해주세요.", "내용");
+            if (newComment === null) {
+                alert("내용이 입력되지 않았습니다.")
+                return;
+            }
+            await updateDoc(doc(db, "webComments", id), {
+                'comment': newComment
+            });
+            window.location.reload();
+        } else {
+            alert("비밀번호가 다릅니다.");
+        }
+    }
+
+    // 수정 버튼 누르면 실행
+    // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
+    document.querySelectorAll(".modiBtn").forEach((item) => {
+        item.addEventListener("click", clickModifyBtn);
+    });
 </script>
 
 <body>
@@ -405,19 +460,22 @@
             <div class="myProfile">
                 <div class="Advantages">
                     <p class="title">자신의 장점</p>
-                    <p id= "myContents">저의 세심함은 완성도 높은 프로젝트를 만드는데<br>효과적으로 작용할 것으로 기대됩니다!</p>
+                    <p id="myContents">저의 세심함은 완성도 높은 프로젝트를 만드는데<br>효과적으로 작용할 것으로 기대됩니다!</p>
                 </div>
                 <div class="myStyle">
                     <p class="title">자신의 스타일</p>
-                    <p id= "myContents">먼저 계획을 세운 다음<br>차근차근 이행하는 것을 좋아합니다 ^.^</p>
+                    <p id="myContents">먼저 계획을 세운 다음<br>차근차근 이행하는 것을 좋아합니다 ^.^</p>
                 </div>
                 <div class="collaboStyle">
                     <p class="title">협업 스타일</p>
-                    <p id= "myContents">리더형보다는 팔로워형에 가깝지만,<br>좋은 아이디어가 있다면 팀원분들과 공유하며<br>더 멋진 프로젝트를 만들고자 합니다!</p>
+                    <p id="myContents">리더형보다는 팔로워형에 가깝지만,<br>좋은 아이디어가 있다면 팀원분들과 공유하며<br>더 멋진 프로젝트를 만들고자 합니다!</p>
                 </div>
                 <div class="blogLink">
                     <!-- 아래 링크 수정하면 됩니다 임시로 네이버 넣어놨어요 -->
-                    <a href="https://www.naver.com/">블로그 링크</a>
+                    <div class="bloglink">
+                        <a href="https://velog.io/@oneieo">velog</a>
+                        <a href="https://github.com/oneieo">github</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -437,10 +495,10 @@
             <li class="commentLi">
                 <div class="liLeft">
                     <p id="cmName">김래준 매니저</p>
-                    <p>지원님 ~ 좋습니다!</p>
+                    <p>지원님 ~ 오늘도 화이팅입니다!</p>
                 </div>
                 <div class="liRight">
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>                    
+                    <button type="button" class="modiBtn" style="float: right;">수정</button>
                     <button type="button" class="delBtn" style="float: right;">삭제</button>
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
                         <path
@@ -455,7 +513,7 @@
                     <p>지원님 ~ 살아계신가요?</p>
                 </div>
                 <div class="liRight">
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>                    
+                    <button type="button" class="modiBtn" style="float: right;">수정</button>
                     <button type="button" class="delBtn" style="float: right;">삭제</button>
                     <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like" viewBox="0 0 512 512">
                         <path
@@ -483,7 +541,7 @@
             <div class="comment">
                 <label for="comment"></label>
                 <input id="comment" type="text" placeholder="댓글을 입력하세요."
-                    style="width: 100%;height: 40px;font-size: 18px;">
+                    style="width: 100%;height: 40px;font-size: 20px;">
             </div>
             <button id="postingBtn" type="button" button class="button">댓글 등록</button>
         </div>
