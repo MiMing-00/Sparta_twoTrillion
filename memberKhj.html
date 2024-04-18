@@ -357,32 +357,33 @@ document.querySelectorAll(".delBtn").forEach((item) => {
     item.addEventListener("click", clickDeleteBtn);
 });
 
-// 댓글 수정
+// 댓글 수정 promt 2중 설계
 async function clickModifyBtn(event) {
-    const id = event.target.dataset.id;
+        const id = event.target.dataset.id;
 
-    const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
-    if (needPwModi === null) {
-        return;
-    }
-
-    const commentDoc = await getDoc(doc(db, "webComments", id));
-
-    const data = commentDoc.data();
-    if (data.pw === needPwModi) {
-        const newComment = prompt("수정할 댓글을 입력해주세요.","댓글");
-        if (newComment === null) {
-            alert("댓글이 입력되지 않았습니다.")
+        const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        if (needPwModi === null) {
+            alert("비밀번호를 입력하지 않았습니다.")
             return;
         }
-        await updateDoc(doc(db, "webComments", id), {
-            'comment' : newComment
-        });
-        window.location.reload();
-    } else {
-        alert("비밀번호가 다릅니다.");
+
+        const commentDoc = await getDoc(doc(db, "webComments", id));
+
+        const data = commentDoc.data();
+        if (data.pw === needPwModi) {
+            const newComment = prompt("수정할 댓글을 입력해주세요.","댓글");
+            if (newComment === null) {
+                alert("댓글이 입력되지 않았습니다.")
+                return;
+            }
+            await updateDoc(doc(db, "webComments", id), {
+                'comment' : newComment
+            });
+            window.location.reload();
+        } else {
+            alert("비밀번호가 다릅니다.");
+        }
     }
-}
 
 // 수정 버튼 누르면 실행
 // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
