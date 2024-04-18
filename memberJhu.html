@@ -49,7 +49,6 @@
         margin: 20px;
         font-size: 20px;
         text-align: center;
-        text-align: center;
     }
 
     /* 왼쪽 박스 글 사이 간격 조절 */
@@ -255,7 +254,7 @@
                     <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
                     <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
             </div>
-            <p>${nickname}</p>
+            <p style="font-weight: bold;">${nickname}</p>
             <p>${comment}</p>
         </li>`
         $('.userComment').append(temp_html);
@@ -268,8 +267,9 @@
     async function clickDeleteBtn(event) {
         const id = event.target.dataset.id
 
-        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "");
         if (needPwdel === null) {
+            alert("비밀번호를 입력하지 않았습니다.")
             return;
         }
 
@@ -294,8 +294,9 @@
     async function clickModifyBtn(event) {
         const id = event.target.dataset.id;
 
-        const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "");
         if (needPwModi === null) {
+            alert("비밀번호를 입력하지 않았습니다.")
             return;
         }
 
@@ -370,38 +371,7 @@
     <div class="commentList">
         <h3>댓글 목록</h3>
         <ul class="userComment">
-            <li class="commentLi">
-                <div class="moddelBtn">
-                    <button type="button" class="delBtn" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>
-                </div>
-                <p>박솔</p>
-                <p>와 너무 멋져요!</p>
-            </li>
-            <li class="commentLi">
-                <div class="moddelBtn">
-                    <button type="button" class="delBtn" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>
-                </div>
-                <p>김휘진</p>
-                <p>친해지고 싶어요 ㅠㅠ</p>
-            </li>
-            <li class="commentLi">
-                <div class="moddelBtn">
-                    <button type="button" class="delBtn" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>
-                </div>
-                <p>최혜미</p>
-                <p>인스타 아이디 알려주세요</p>
-            </li>
-            <li class="commentLi">
-                <div class="moddelBtn">
-                    <button type="button" class="delBtn" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" style="float: right;">수정</button>
-                </div>
-                <p>선지원</p>
-                <p>오늘 저녁 메뉴 추천해 주십쇼!</p>
-            </li>
+            
         </ul>
     </div>
     <div class="commentForm">
