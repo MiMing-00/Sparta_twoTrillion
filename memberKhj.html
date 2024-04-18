@@ -243,7 +243,9 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 
     // Firebase 구성 정보 설정
@@ -251,12 +253,13 @@
 
     // 아래 내용은 각자 파이어베이스 내용으로 변경해주세요!
     const firebaseConfig = {
-        apiKey: "AIzaSyDtjTmympAAkcLbRTFVKAFrCKc1CwRo1D0",
-        authDomain: "member-comment.firebaseapp.com",
-        projectId: "member-comment",
-        storageBucket: "member-comment.appspot.com",
-        messagingSenderId: "174671122442",
-        appId: "1:174671122442:web:6d72c7af4a0fda299ecff3"
+        apiKey: "AIzaSyDCjjw-Eh3gGnqwEVGcgAx2QQGq3OTopoE",
+        authDomain: "sparta-f2434.firebaseapp.com",
+        projectId: "sparta-f2434",
+        storageBucket: "sparta-f2434.appspot.com",
+        messagingSenderId: "379064367653",
+        appId: "1:379064367653:web:c55d67e2dd6f33dc489dcc",
+        measurementId: "G-WZZ9TDE0J4"
     };
 
 
@@ -280,38 +283,112 @@
         window.location.reload();
     })
 
-    let docs = await getDocs(collection(db, "comments"));
+    // 댓글 등록 addDoc() 을 setDoc()으로 바꾸기
+    $("#postingBtn").click(async function () {
+        let nickname = $('#nickname').val();
+        let pw = $('#pw').val();
+        let comment = $('#comment').val();
+        const commentId = Date.now().toString()
+
+        const data = {
+            'nickname': nickname,
+            'pw': pw,
+            'comment': comment,
+        };
+        ;
+        await setDoc(doc(db, "webComments", commentId), data);
+        alert('댓글이 작성되었습니다.');
+        window.location.reload();
+    });
+
+    let docs = await getDocs(collection(db, "webComments"));
     docs.forEach((doc) => {
         let row = doc.data();
         let nickname = row['nickname'];
         let pw = row['pw'];
         let comment = row['comment'];
+        let id = doc.id;
 
         let temp_html = `            
         <li class="commentLi">
-                <div class="liLeft">
-                    <p>${nickname}</p>
-                    <p>${comment}</p>
-                </div>
-                <div class="liRight">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
-                        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path
-                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                    </svg>
-                    <p id="likeNum">12</p>
-                </div>
-            </li>`
+            <p>${nickname}</p>
+            <p>${comment}</p>
+            <div class="moddelBtn" id = "moddelBtn">
+                    <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
+                    <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
+            </div>
+        </li>`
         $('.userComment').append(temp_html);
     });
 
+    // 좋아요 버튼
     const heartBtn = document.querySelectorAll('.like')
-    heartBtn.forEach((target)=>target.addEventListener('click', function () {
+    heartBtn.forEach((target) => target.addEventListener('click', function () {
         target.classList.toggle('active')
         const likeNum = target.nextElementSibling;
-        likeNum.innerText = +likeNum.innerText+1
+        likeNum.innerText = +likeNum.innerText + 1
     }))
 
+    const mAD = document.getElementById("moddelBtn")
+
+// 댓글 삭제
+async function clickDeleteBtn(event) {
+    const id = event.target.dataset.id
+
+    const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+    if (needPwdel === null) {
+        return;
+    }
+
+    const comment = await getDoc(doc(db, "webComments", id));
+    const data = comment.data();
+
+    if (data.pw === needPwdel) {
+        await deleteDoc(doc(db, "webComments", id));
+        alert("삭제되었습니다.");
+        window.location.reload();
+    } else {
+        alert("비밀번호가 다릅니다.");
+    }
+}
+
+// 삭제 버튼 누르면 실행
+document.querySelectorAll(".delBtn").forEach((item) => {
+    item.addEventListener("click", clickDeleteBtn);
+});
+
+// 댓글 수정
+async function clickModifyBtn(event) {
+    const id = event.target.dataset.id;
+
+    const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+    if (needPwModi === null) {
+        return;
+    }
+
+    const commentDoc = await getDoc(doc(db, "webComments", id));
+
+    const data = commentDoc.data();
+    if (data.pw === needPwModi) {
+        const newComment = prompt("수정할 댓글을 입력해주세요.","댓글");
+        if (newComment === null) {
+            alert("댓글이 입력되지 않았습니다.")
+            return;
+        }
+        await updateDoc(doc(db, "webComments", id), {
+            'comment' : newComment
+        });
+        window.location.reload();
+    } else {
+        alert("비밀번호가 다릅니다.");
+    }
+}
+
+// 수정 버튼 누르면 실행
+// modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
+document.querySelectorAll(".modiBtn").forEach((item) => {
+    item.addEventListener("click", clickModifyBtn);
+});
 </script>
 
 <body>
