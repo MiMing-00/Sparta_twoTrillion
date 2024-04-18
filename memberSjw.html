@@ -18,6 +18,8 @@
     }
 
 
+
+
     body {
         background-image: url(./img/SJW_bgImg.jpg);
         background-size: cover;
@@ -139,6 +141,25 @@
         font-size: 30px;
     }
 
+    .leftBox,
+    .rightBox,
+    .commentList,
+    .commentForm {
+        opacity: 0;
+        animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
     /* 뒤로 가기 버튼 */
     .backBtn {
         position: fixed;
@@ -146,7 +167,7 @@
         top: 20px;
         width: 70px;
         height: 70px;
-        background-image: url(./img/pixelBackBtn.png);
+        background-image: url(./img/pixelBackBtn1.png);
         background-size: contain;
         cursor: pointer;
     }
@@ -302,6 +323,13 @@
         display: flex;
         gap: 33px;
     }
+
+    ::selection {
+        color: black;
+        background-color: rgb(254, 150, 206);
+    }
+
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
