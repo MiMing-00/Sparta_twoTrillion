@@ -311,6 +311,10 @@
         let nickname = $('#nickname').val();
         let pw = $('#pw').val();
         let comment = $('#comment').val();
+        if (!nickname || !pw || !comment) {
+        alert('닉네임, 비밀번호, 댓글을 모두 입력해주세요.');
+        return; //
+}
 
         let doc = {
             'nickname': nickname,
@@ -382,7 +386,7 @@
     async function clickDeleteBtn(event) {
         const id = event.target.dataset.id
 
-        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "");
         if (needPwdel === null) {
             return;
         }
@@ -408,7 +412,7 @@
     async function clickModifyBtn(event) {
         const id = event.target.dataset.id;
 
-        const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "");
         if (needPwModi === null) {
             alert("비밀번호를 입력하지 않았습니다.")
             return;
@@ -418,7 +422,7 @@
 
         const data = commentDoc.data();
         if (data.pw === needPwModi) {
-            const newComment = prompt("수정할 댓글을 입력해주세요.", "댓글");
+            const newComment = prompt("수정할 댓글을 입력해주세요.", data.comment);
             if (newComment === null) {
                 alert("댓글이 입력되지 않았습니다.")
                 return;
