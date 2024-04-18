@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/reset.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>정현욱 소개페이지</title>
 </head>
 <style>
     body {
         background: linear-gradient(to top, white, #B09BDE);
         font-family: 'Noto Sans KR';
-        ;
     }
 
     .memberBox {
@@ -157,6 +156,7 @@
         border: 2px solid black;
         border-radius: 20px;
         padding: 10px;
+        justify-content: space-between;
     }
 
     .commentLi+.commentLi {
@@ -170,6 +170,36 @@
         padding: 60px;
         margin: 0 auto;
         border-radius: 60px;
+    }
+
+    .liRight {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: right;
+    }
+
+    .liRight button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .like {
+        width: 25px;
+        fill: orangered;
+    }
+
+    .like:hover {
+        fill: blueviolet;
+        cursor: pointer;
+    }
+
+    #likeNum {
+        color: orangered;
+        font-weight: bold;
     }
 
     .button {
@@ -250,16 +280,32 @@
 
         let temp_html = `            
         <li class="commentLi">
-            <div class="moddelBtn" id = "moddelBtn">
-                    <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
-                    <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
-            </div>
-            <p style="font-weight: bold;">${nickname}</p>
-            <p>${comment}</p>
+            <div class="liLeft">
+                    <p style="font-weight:bold;">${nickname}</p>
+                    <p>${comment}</p>
+                </div>
+                <div class="liRight">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="like" class="like"
+                        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                    </svg>
+                    <p id="likeNum">0</p>
+                    <div class="moddelBtn" id = "moddelBtn">
+                      <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
+                      <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
+                    </div>
+                </div>
         </li>`
         $('.userComment').append(temp_html);
     });
 
+    const heartBtn = document.querySelectorAll('.like')
+    heartBtn.forEach((target) => target.addEventListener('click', function () {
+        target.classList.toggle('active')
+        const likeNum = target.nextElementSibling;
+        likeNum.innerText = +likeNum.innerText + 1
+    }))
 
     const mAD = document.getElementById("moddelBtn")
 
@@ -371,7 +417,7 @@
     <div class="commentList">
         <h3>댓글 목록</h3>
         <ul class="userComment">
-            
+
         </ul>
     </div>
     <div class="commentForm">
