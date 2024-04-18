@@ -161,6 +161,17 @@
         display: flex;
         gap: 20px;
     }
+
+    .delBtn {
+        margin: 5px;
+    }
+
+    .modiBtn {
+        margin: 5px;
+    }
+
+
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module">
@@ -190,7 +201,7 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // 댓글 등록 addDoc() 을 setDoc()으로 바꾸기
+    // 댓글 등록
     $("#postingBtn").click(async function () {
         let nickname = $('#nickname').val();
         let pw = $('#pw').val();
@@ -218,18 +229,16 @@
 
         let temp_html = `            
         <li class="commentLi">
-            <p>${nickname}</p>
-            <p>${comment}</p>
             <div class="moddelBtn" id = "moddelBtn">
                     <button type="button" class="delBtn" data-id = "${id}" style="float: right;">삭제</button>
                     <button type="button" class="modiBtn" data-id = "${id}" style="float: right;">수정</button>
             </div>
+            <p>${nickname}</p>
+            <p>${comment}</p>
+
         </li>`
         $('.userComment').append(temp_html);
     });
-
-
-    const mAD = document.getElementById("moddelBtn")
 
     // 댓글 삭제
     async function clickDeleteBtn(event) {
@@ -237,6 +246,7 @@
 
         const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
         if (needPwdel === null) {
+            alert("비밀번호를 입력하지 않았습니다.")
             return;
         }
 
@@ -257,12 +267,13 @@
         item.addEventListener("click", clickDeleteBtn);
     });
 
-    // 댓글 수정
+    // 댓글 수정 promt 2중 설계
     async function clickModifyBtn(event) {
         const id = event.target.dataset.id;
 
         const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
         if (needPwModi === null) {
+            alert("비밀번호를 입력하지 않았습니다.")
             return;
         }
 
@@ -285,7 +296,6 @@
     }
 
     // 수정 버튼 누르면 실행
-    // modiBtn 을 셀렉트(여러개), 루프를 통해서 각각의 버튼에 클릭 이벤트 등록
     document.querySelectorAll(".modiBtn").forEach((item) => {
         item.addEventListener("click", clickModifyBtn);
     });
