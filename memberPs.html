@@ -9,6 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        
 
         ::selection {
             background-color: #39FF14;
@@ -34,7 +35,7 @@
 
 
         body {
-            background-color: #000000;
+            background:linear-gradient(to right top, #000 80%,#39FF14);
             color: white;
             font-family: "Noto Sans KR", sans-serif;
         }
@@ -42,7 +43,6 @@
         .memberBox {
             box-sizing: border-box;
             width: 1440px;
-            border: 1px solid black;
             margin: 100px auto 0;
             display: flex;
             gap: 40px;
@@ -52,7 +52,7 @@
         .rightBox {
             text-align: center;
             border: 5px solid #39FF14;
-            /* background-color: #39FF14; */
+            background-color: #000;
             border-radius: 50px;
         }
 
@@ -267,6 +267,7 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
         .button:hover {
             background-color: white;
             color: #39FF14;
@@ -368,6 +369,7 @@
 
             const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
             if (needPwdel === null) {
+                alert("비밀번호를 입력하지 않았습니다.")
                 return;
             }
 
@@ -394,6 +396,7 @@
 
             const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
             if (needPwModi === null) {
+                alert("비밀번호를 입력하지 않았습니다.")
                 return;
             }
 
