@@ -286,7 +286,7 @@
         font-size: 23px;
         font-style: inherit;
         padding-bottom: 5px;
-        background-color: #22d953;
+        background-color: #20bb49;
         border: 3.5px solid;
         border-radius: 50px;
         color: rgb(0, 0, 0);
@@ -390,7 +390,7 @@
     async function clickDeleteBtn(event) {
         const id = event.target.dataset.id
 
-        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "비밀번호");
+        const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "");
         if (needPwdel === null) {
             alert("비밀번호가 입력되지 않았습니다.");
             return;
@@ -417,7 +417,7 @@
     async function clickModifyBtn(event) {
         const id = event.target.dataset.id;
 
-        const needPwModi = prompt("댓글 수정을 위해 비밀번호를 입력하세요.", "비밀번호");
+        const needPwModi = prompt("댓글 수정을 위해 비밀번호를 입력하세요.", "");
         if (needPwModi === null) {
             alert("비밀번호가 입력되지 않았습니다.");
             return;
@@ -427,7 +427,7 @@
 
         const data = commentDoc.data();
         if (data.pw === needPwModi) {
-            const newComment = prompt("수정할 내용을 입력해주세요.", "내용");
+            const newComment = prompt("댓글을 수정하세요.", data.comment);
             if (newComment === null) {
                 alert("내용이 입력되지 않았습니다.")
                 return;
@@ -468,7 +468,7 @@
                 </div>
                 <div class="collaboStyle">
                     <p class="title">협업 스타일</p>
-                    <p id="myContents">리더형보다는 팔로워형에 가깝지만,<br>좋은 아이디어가 있다면 팀원분들과 공유하며<br>더 멋진 프로젝트를 만들고자 합니다!</p>
+                    <p id="myContents">리더보다는 팔로워에 가깝지만,<br>좋은 아이디어가 있다면 팀원분들과 적극적으로 공유하며<br>더 멋진 프로젝트를 만들고자 합니다!</p>
                 </div>
                 <div class="blogLink">
                     <!-- 아래 링크 수정하면 됩니다 임시로 네이버 넣어놨어요 -->
