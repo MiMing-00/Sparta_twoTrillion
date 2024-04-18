@@ -18,6 +18,8 @@
     }
 
 
+
+
     body {
         background-image: url(./img/SJW_bgImg.jpg);
         background-size: cover;
@@ -28,7 +30,7 @@
         box-sizing: border-box;
         width: 1400px;
         border-radius: 30px;
-        margin: 50px auto 0;
+        margin: 100px auto 0;
         display: flex;
         justify-content: space-between;
         gap: 40px;
@@ -139,6 +141,25 @@
         font-size: 30px;
     }
 
+    .leftBox,
+    .rightBox,
+    .commentList,
+    .commentForm {
+        opacity: 0;
+        animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
     /* 뒤로 가기 버튼 */
     .backBtn {
         position: fixed;
@@ -146,7 +167,7 @@
         top: 20px;
         width: 70px;
         height: 70px;
-        background-image: url(./img/pixelBackBtn.png);
+        background-image: url(./img/pixelBackBtn1.png);
         background-size: contain;
         cursor: pointer;
     }
@@ -232,7 +253,7 @@
         background-color: rgb(113, 74, 54);
         box-sizing: border-box;
         padding: 30px;
-        margin: 0 auto 20px auto;
+        margin: 0 auto 100px auto;
     }
 
     #like {
@@ -284,24 +305,33 @@
         font-size: 23px;
         font-style: inherit;
         padding-bottom: 5px;
-        background-color: #20bb49;
+        background-color: #42e347;
         border: 3.5px solid;
         border-radius: 50px;
         color: rgb(0, 0, 0);
         cursor: pointer;
         font-weight: bold;
         font-family: "Noto Sans KR", sans-serif;
+        transition: all 0.4s;
     }
 
     .button:hover {
         background-color: rgb(255, 96, 181);
         border: 3.5px solid;
+        
     }
 
     .commentUp {
         display: flex;
         gap: 33px;
     }
+
+    ::selection {
+        color: black;
+        background-color: rgb(254, 150, 206);
+    }
+
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
