@@ -163,6 +163,7 @@
             line-height: 50px;
             border-radius: 1px;
         }
+
         .commentLi {
             font-size: 20px;
             border: 3px solid #39FF14;
@@ -247,7 +248,7 @@
             display: flex;
             gap: 20px;
         }
-        
+
         .comment {
             width: 100%;
             border-style: solid;
@@ -271,7 +272,6 @@
             background-color: white;
             color: #39FF14;
         }
-
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module">
@@ -289,13 +289,13 @@
 
         // 아래 내용은 각자 파이어베이스 내용으로 변경해주세요!
         const firebaseConfig = {
-            apiKey: "AIzaSyChTsF0BQlrb-zlL_rkUDopGDUAFEh5q1E",
-            authDomain: "twotrillionsol.firebaseapp.com",
-            projectId: "twotrillionsol",
-            storageBucket: "twotrillionsol.appspot.com",
-            messagingSenderId: "799844548819",
-            appId: "1:799844548819:web:dc388dead5b291b1e8d426",
-            measurementId: "G-Z1XJZ89GLZ"
+            apiKey: "",
+            authDomain: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: "",
+            measurementId: ""
         };
 
 
@@ -390,7 +390,7 @@
             item.addEventListener("click", clickDeleteBtn);
         });
 
-        // 댓글 수정
+        // 댓글 수정 promt 2중 설계
         async function clickModifyBtn(event) {
             const id = event.target.dataset.id;
 
