@@ -25,6 +25,11 @@
         background-repeat: no-repeat;
     }
 
+    ::selection {
+            background-color: #7B66FF;
+            color: #fff;
+        }
+
     .leftBox,
     .rightBox,
     .commentList,
@@ -104,8 +109,6 @@
 
     .hub123:hover {
         background: silver;
-        /* transition: all 3s;
-        transform: rotate(360deg); */
     }
 
     .blogLink a {
@@ -120,13 +123,10 @@
         color: white;
     }
 
-
-    /* 왼쪽 박스 글 사이 간격 조절 */
     .leftBox .myProfile>div+div {
         margin-top: 20px;
     }
 
-    /* 왼쪽 박스 타이틀 스타일 지정 */
     .leftBox .myProfile>div>.title {
         margin-bottom: 10px;
         font-weight: bold;
@@ -168,7 +168,6 @@
         margin-top: 30px;
     }
 
-    /* 뒤로 가기 버튼 */    
     .backBtn {
         position: fixed;
         left: 20px;
@@ -264,14 +263,6 @@
         color: grey;
     }
 
-    /* .button {
-        width: 100px;
-        font-size: 15px;
-        font-style: inherit;
-        background-color: #88fba6;
-        color: rgb(18, 10, 10);
-    } */
-
     .commentUp {
         display: flex;
         gap: 20px;
@@ -343,6 +334,7 @@
     .ninini {
         font-weight: bold;
     }
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module">
@@ -356,17 +348,6 @@
 
     // Firebase 구성 정보 설정
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-    // 아래 내용은 각자 파이어베이스 내용으로 변경해주세요!
-    // const firebaseConfig = {
-    //     apiKey: "",
-    //     authDomain: "",
-    //     projectId: "",
-    //     storageBucket: "",
-    //     messagingSenderId: "",
-    //     appId: "",
-    //     measurementId: ""
-    // };
 
     const firebaseConfig = {
         apiKey: "AIzaSyB2SUHRwne9YVQf37JPuSamvoyaWpFoWXM",
@@ -399,7 +380,7 @@
             'pw': pw,
             'comment': comment,
         };
-        ;
+        
         await setDoc(doc(db, "webComments", commentId), data);
         alert('댓글이 작성되었습니다.');
         window.location.reload();
