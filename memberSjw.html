@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +15,6 @@
         font-weight: 400;
         src: url('./font/Cafe24Ssurround-v2.0.woff2') format('woff2'),
     }
-
-
-
 
     body {
         background-image: url(./img/SJW_bgImg.jpg);
@@ -84,9 +80,7 @@
         color: #565656;
     }
 
-    .bloglink {
-        text-align: right;
-    }
+    .bloglink {text-align: right;}
 
     .blogLink a {
         font-size: 25px;
@@ -120,9 +114,7 @@
         margin: -20px auto 20px auto;
     }
 
-    .rightBoxTxt {
-        text-align: center;
-    }
+    .rightBoxTxt {text-align: center;}
 
     .rightBoxTxt>p {
         font-size: 40px;
@@ -130,9 +122,7 @@
         font-family: 'cafe24Ssurround';
     }
 
-    .rightBoxTxt>p+p {
-        margin-top: 20px;
-    }
+    .rightBoxTxt>p+p {margin-top: 20px;}
 
     #message {
         padding: 0px 0px 10px 0px;
@@ -242,9 +232,7 @@
         background-color: white;
     }
 
-    .commentLi+.commentLi {
-        margin-top: 10px;
-    }
+    .commentLi+.commentLi {margin-top: 10px;}
 
     .commentForm {
         width: 1400px;
@@ -271,13 +259,9 @@
         font-size: 25px;
     }
 
-    .liLeft {
-        margin-left: 1%;
-    }
+    .liLeft {margin-left: 1%;}
 
-    #cmName {
-        font-weight: bold;
-    }
+    #cmName {font-weight: bold;}
 
     .liRight {
         align-items: center;
@@ -286,9 +270,7 @@
         margin-right: 2%;
     }
 
-    .coNiPw {
-        color: white;
-    }
+    .coNiPw {color: white;}
 
     .modiBtn,
     .delBtn {
@@ -330,11 +312,9 @@
         color: black;
         background-color: rgb(254, 150, 206);
     }
-
-
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module">
     // Firebase SDK 라이브러리 가져오기
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -344,7 +324,6 @@
     // Firebase 구성 정보 설정
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-    // 아래 내용은 각자 파이어베이스 내용으로 변경해주세요!
     const firebaseConfig = {
         apiKey: "AIzaSyDtjTmympAAkcLbRTFVKAFrCKc1CwRo1D0",
         authDomain: "member-comment.firebaseapp.com",
@@ -416,7 +395,7 @@
     const mAD = document.getElementById("moddelBtn")
 
     async function clickDeleteBtn(event) {
-        const id = event.target.dataset.id
+        const id = event.target.dataset.id;
 
         const needPwdel = prompt("댓글을 삭제하려면 입력한 비밀번호를 입력하세요.", "");
         if (needPwdel === null) {
@@ -520,7 +499,7 @@
     <div class="commentList">
         <h3>댓글 목록</h3>
         <ul class="userComment">
-            <li class="commentLi">
+           <!-- <li class="commentLi">
                 <div class="liLeft">
                     <p id="cmName">김래준 매니저</p>
                     <p>지원님 ~ 오늘도 화이팅입니다!</p>
@@ -536,7 +515,7 @@
                 </div>
             </li>
             <li class="commentLi">
-                <div class="liLeft">
+               <div class="liLeft">
                     <p id="cmName">최이진 매니저</p>
                     <p>지원님 ~ 살아계신가요?</p>
                 </div>
@@ -549,7 +528,7 @@
                     </svg>
                     <p id="likeNum">15</p>
                 </div>
-            </li>
+            </li>-->
         </ul>
     </div>
     <div class="commentForm">
