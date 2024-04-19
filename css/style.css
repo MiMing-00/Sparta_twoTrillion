@@ -102,7 +102,6 @@ body {
 
 .circleHouse {
     width: 1400px;
-    /* height: 700px; */
     margin: 0 auto 0 auto;
     font-size: 50px;
     display: flex;
@@ -189,7 +188,6 @@ body {
 .box_row1 {
     display: grid;
     grid-template-columns: 340px 340px 340px 340px 340px;
-    /* grid-template-columns: 170px 170px 170px 170px 170px; */
     grid-template-rows: 100px;
     justify-content: center;
 }
@@ -227,7 +225,6 @@ body {
 .mid_image {
     height: 435px;
     text-align: center;
-    /* padding: 95px 0px 95px 0px; */
     background-image: url("../img/mid_image.jpg");
     background-size: cover;
     background-position: center;
@@ -256,7 +253,6 @@ body {
 /* profile */
 .profile_title {
     color: #149B3B;
-    /* height: 250px; */
     width: 1440px;
     margin: 100px auto 60px;
     display: flex;
@@ -355,9 +351,6 @@ footer {
     height: 230px;
     position: relative;
     margin: 0 auto;
-    /* position: fixed; */
-    /* left: 0;
-    bottom: 0; */
     width: 1920px;
     background-color: #149b3b;
     display: flex;
@@ -373,7 +366,6 @@ footer {
 }
 
 .down1 {
-    /* margin-left: 240px; */
     width: 800px;
     color: white;
     text-align: left;
