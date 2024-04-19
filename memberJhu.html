@@ -224,6 +224,7 @@
     }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/jhuPrivate.js"></script>
 <script type="module">
     // Firebase SDK 라이브러리 가져오기
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -232,18 +233,6 @@
     import { getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-    // Firebase 구성 정보 설정
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-        apiKey: "AIzaSyD3GXhWTgdTZ8WHDh9EMENkg6eWyakVT1Q",
-        authDomain: "sparta-b71cd.firebaseapp.com",
-        projectId: "sparta-b71cd",
-        storageBucket: "sparta-b71cd.appspot.com",
-        messagingSenderId: "361649695470",
-        appId: "1:361649695470:web:ad5ac497caedf794f7e1ff",
-        measurementId: "G-BL5WDZ1SBH"
-    };
 
     // Firebase 인스턴스 초기화
     const app = initializeApp(firebaseConfig);
