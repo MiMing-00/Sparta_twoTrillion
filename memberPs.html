@@ -395,6 +395,8 @@
             const commentLi = event.target.closest('.commentLi');
             const liLeft = commentLi.firstElementChild;
             const userComment = liLeft.lastElementChild;
+            const modiBtn = event.target;
+            console.log(modiBtn)
 
             const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "");
             if (needPwModi === null) {
@@ -406,9 +408,9 @@
 
             const data = commentDoc.data();
             if (data.pw === needPwModi) {
-                const textarea = document.createElement("textarea");
-                textarea.placeholder = "수정할 메시지를 입력하세요";
-                textarea.value = data.comment;
+                const modiInput = document.createElement("input");
+                modiInput.placeholder = "수정할 메시지를 입력하세요";
+                modiInput.value = data.comment;
 
                 const saveButton = document.createElement("button");
                 saveButton.textContent = "댓글 등록";
@@ -416,14 +418,16 @@
 
                 const textModiBox = document.createElement("div");
                 textModiBox.classList.add("textModiBox");
-                textModiBox.appendChild(textarea);
+                textModiBox.appendChild(modiInput);
                 textModiBox.appendChild(saveButton);
 
+                modiBtn.style.display = "none";
                 userComment.style.display = "none";
                 liLeft.appendChild(textModiBox);
+                modiInput.focus()
 
                 saveButton.addEventListener("click", async () => {
-                    const newComment = textarea.value;
+                    const newComment = modiInput.value;
                     if (newComment === '') {
                         alert("댓글이 입력되지 않았습니다.")
                         return;
@@ -435,13 +439,13 @@
                         });
                         // 업데이트된 메시지를 화면에 반영
                         userComment.textContent = newComment;
+                        modiBtn.style.display = "";
                         userComment.style.display = "";
-                        userComment.remove();
                         window.alert("메시지가 업데이트되었습니다.");
                         window.location.reload();
 
                     } catch (error) {
-                        window.alert("메시지를 업데이트하는 동안 오류가 발생했습니다.");
+                        window.alert("오류가 발생했습니다.");
                     }
 
                 })
