@@ -428,7 +428,7 @@
             const liLeft = commentLi.firstElementChild;
             const userComment = liLeft.lastElementChild;
             const modiBtn = event.target;
-            console.log(modiBtn)
+            const delBtn = event.target.nextElementSibling;
 
             const needPwModi = prompt("수정하려면 입력한 비밀번호를 입력하세요.", "");
             if (needPwModi === null) {
@@ -454,6 +454,7 @@
                 textModiBox.appendChild(saveButton);
 
                 modiBtn.style.display = "none";
+                delBtn.style.display = "none";
                 userComment.style.display = "none";
                 liLeft.appendChild(textModiBox);
                 modiInput.focus()
@@ -470,8 +471,8 @@
                             'comment': newComment
                         });
                         // 업데이트된 메시지를 화면에 반영
-                        userComment.textContent = newComment;
                         modiBtn.style.display = "";
+                        delBtn.style.display = "";
                         userComment.style.display = "";
                         window.alert("메시지가 업데이트되었습니다.");
                         window.location.reload();
