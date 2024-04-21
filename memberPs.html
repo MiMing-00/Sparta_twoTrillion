@@ -171,6 +171,7 @@
             padding: 20px 30px;
             display: flex;
             justify-content: space-between;
+            gap: 10px;
         }
 
         .commentLi+.commentLi {
@@ -180,7 +181,9 @@
         .commentLi p:first-child {
             font-weight: bold;
         }
-
+        .liLeft {
+            width: 100%;
+        }
         .liRight {
             display: flex;
             align-items: center;
@@ -194,6 +197,7 @@
             color: #39FF14;
             font-size: 20px;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .liRight button:hover {
@@ -270,6 +274,34 @@
 
         .button:hover {
             background-color: white;
+            color: #39FF14;
+        }
+
+        .textModiBox {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+        }
+
+        .textModiBox input {
+            font-family: "Noto Sans KR", sans-serif;
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+        }
+        .textModiBox .saveBtn {
+            font-family: "Noto Sans KR", sans-serif;
+            width: 150px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #39FF14;
+            color: #000;
+        }
+        .textModiBox .saveBtn:hover {
+            background-color: #fff;
             color: #39FF14;
         }
     </style>
@@ -433,7 +465,7 @@
                         return;
                     }
                     try {
-                        // Firestore에서 문서 업데이트
+                        // Firestore 업데이트
                         await updateDoc(doc(db, "webComments", id), {
                             'comment': newComment
                         });
